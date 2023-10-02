@@ -1,14 +1,10 @@
 import './App.css';
+import Login from './logincommpent/login'; 
 
 function App() {
   return (
     <div className="App">
-      <div className="group">
-        <h1>LOGO</h1>
-           <form className="googleLog">
-            <input type="submit" value=""></input>
-           </form>
-      </div>
+      <Login />
     </div>
   );
 }

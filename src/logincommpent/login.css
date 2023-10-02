@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+  }
+  .group{
+    width: 500px;
+    height: 564px;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    position: absolute;
+    left: 480px;
+    top: 15%;
+  }
+  .group > h1{
+    text-align: center;
+    position: relative;
+    top: 200px;
+    font-size: 60px;
+  }
+  .googleLog > input{
+    width: 340px;
+    height: 70px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    position: relative;
+    top: 350px;
+    left: 80px;
+    background-color: #FFFFFF;
+  }
