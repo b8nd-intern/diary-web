@@ -1,10 +1,12 @@
 import React from "react";
 import "./footer.css";
+import { Link } from "react-router-dom";
 
 const footer = () => {
   return (
     <div className="bottom">
       <span className="home mini bottomIcon">
+        <Link to="/mainhome">
         <svg
           width="100"
           height="100"
@@ -18,8 +20,10 @@ const footer = () => {
             fill="black"
           />
         </svg>
+        </Link>
       </span>
       <span className="writing bottomIcon">
+        <Link to="/mainprivatewriting">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="100"
@@ -42,9 +46,12 @@ const footer = () => {
             clip-rule="evenodd"
           />
         </svg>
+        </Link>
       </span>
       <span className="mypage mini bottomIcon">
+        <Link to="/mypage">
         <img src={require("../img/assignment_ind.png")} alt="MyPageIcon" />
+        </Link>
       </span>
     </div>
   );

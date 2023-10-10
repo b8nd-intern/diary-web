@@ -1,5 +1,6 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from "react";
+import Fotter from "../mainfootercomponent/footer"
 
 export default function MyPage() {
   return (
@@ -16,12 +17,7 @@ export default function MyPage() {
           </div>
         </div>
       </div>
-      <div className="footer">
-        <div id="writting_button">
-          <input className="button" type="button" />
-          <input className="button1" type="button" />
-        </div>
-      </div>
+      <Fotter />
     </div>
   );
 }
