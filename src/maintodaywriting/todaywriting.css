@@ -1,0 +1,55 @@
+.calendar {
+  width: 50%;
+  height: 100%;
+
+  margin-left: 50%;
+}
+
+.calendar P {
+  font-size: 25px;
+  font-weight: normal;
+
+  margin-top: 9%;
+}
+
+.notepad {
+  width:100%;
+  height:100%;
+
+  overflow-y:scroll;
+}
+
+.notepad textarea {
+  width:200px;
+  height:200px;
+
+  border: none;
+  border-radius:5%;
+  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.298);
+
+  margin-right:70px;
+  margin-left:30px;
+  margin-top:50px;
+
+  resize: none;
+}
+
+.notepad textarea:nth-child(1) {
+  background-color:#93C2E4;
+}
+
+.notepad textarea:nth-child(2) {
+  background-color:#B6E0FF;
+}
+
+.notepad textarea:nth-child(3) {
+  background-color:#E3F2FD;
+}
+
+.notepad textarea:nth-child(4) {
+  background-color:#FEEF9F;
+}
+
+.notepad textarea:nth-child(5) {
+  background-color:#93C2E4;
+}
