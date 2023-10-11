@@ -75,6 +75,7 @@
 }
 .post1{
     position: relative;
+    cursor: pointer;
     margin-top: 50px;
     width: 440px;
     height: 45px;
@@ -84,6 +85,7 @@
 }
 .post2{
     position: relative;
+    cursor: pointer;
     margin-top: 30px;
     width: 440px;
     height: 45px;
