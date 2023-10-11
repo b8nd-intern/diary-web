@@ -5,6 +5,7 @@ import Login from "./logincommpent/login";
 import Mypage from "./mypage/mypage";
 import MainHome from "./mainhome/mainhome";
 import MainPrivate from "./mainprivatewriting/writing";
+import MainOpen from "./mainopenwriting/openwriting";
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/mypage" element={<Mypage />} />
-          <Route path="/mainhome" element={<MainHome />}/>
-          <Route path="/mainprivatewriting" element={<MainPrivate/>}/>
+          <Route path="/mainhome" element={<MainHome />} />
+          <Route path="/mainprivatewriting" element={<MainPrivate />} />
+          <Route path="/mainopenewriting" element={<MainOpen />} />
         </Routes>
       </div>
     </BrowserRouter>

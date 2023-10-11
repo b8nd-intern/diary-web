@@ -1,4 +1,4 @@
-.writingNotepad {
+.openWritingNotepad {
     width: 50%;
     height: 810px;
   
@@ -6,35 +6,35 @@
     background-color:#F8F8F8;
 
     position: relative;
-      position: fixed;
+    position: fixed;
 }
 
-.writingNotepad div:nth-child(1) {
+.openWritingNotepad div:nth-child(1) {
     margin-left:5%;
 }
 
-.writingtext {
+.openWritingtext {
     width:20%;
     margin-top:57px;
     position: absolute;
 }
 
-.writingtext span {
+.openWritingtext span {
     font-size:20px;
     font-weight: bold;
     cursor: pointer;
 }
 
-.writingtext span:nth-child(1) {
+.openWritingtext span:nth-child(1) {
     margin-right:40px;
-    color:#A1A1A1;
-}
-
-.writingtext span:nth-child(2) {
     color:#000000;
 }
 
-.colorChange {
+.openWritingtext span:nth-child(2) {
+    color:#A1A1A1;
+}
+
+.openColorChange {
     width:200px;
 
     margin-top:110px;
@@ -43,7 +43,7 @@
     position: absolute;
 }
 
-.colorChange button {
+.openColorChange button {
     width:30px;
     height:30px;
 
@@ -54,30 +54,30 @@
     cursor: pointer;
 }
 
-.colorChange button:nth-child(1){
+.openColorChange button:nth-child(1){
     background-color:#E3F2FD;
 }
 
-.colorChange button:nth-child(2){
+.openColorChange button:nth-child(2){
     background-color:#B6E0FF;
 }
 
-.colorChange button:nth-child(3){
+.openColorChange button:nth-child(3){
     background-color:#93C2E4;
 }
 
-.colorChange button:nth-child(4){
+.openColorChange button:nth-child(4){
     background-color:#FEEF9F;
 }
 
-.Notepad {
+.openNotepad {
     margin-top:21%;
     margin-left:5%;
 
     position: absolute;
 }
 
-.Notepad textarea {
+.openNotepad textarea {
     width:470px;
     height:439px;
 
@@ -91,7 +91,7 @@
     font-weight:bold;
 }
 
-.NotepadSubmit {
+.openNotepadSubmit {
     width:104px;
     height:45px;
 
@@ -101,7 +101,7 @@
     position: absolute;
 }
 
-.NotepadSubmit button {
+.openNotepadSubmit button {
     width:104px;
     height:45px;
 
