@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import Fotter from "../mainfootercomponent/footer"
+import Post from "../mypagepost/mypagepost"
 
 export default function MyPage() {
   return (
@@ -17,6 +18,7 @@ export default function MyPage() {
           </div>
         </div>
       </div>
+      <Post />
       <Fotter />
     </div>
   );

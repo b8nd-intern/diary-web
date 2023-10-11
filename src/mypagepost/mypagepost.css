@@ -1,0 +1,65 @@
+.Post-written{
+    position: absolute;
+    width: 500px;
+    height: 700px;
+    background-color: #D9D9D9;
+    left: 100vh;
+}
+#Post-written-name{
+    position: relative;
+    top: 103px;
+    color: #000;
+    font-family: Roboto;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+}
+#Post-written-number{
+    position: relative;
+    top: 83px;
+    left: 130px;
+    color: #000;
+    font-family: Roboto;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; 
+    letter-spacing: 0.1px;
+}
+#post_view{
+    position: absolute;
+    top: 85px;
+    left: 340px;
+    border: none;
+    width: 101px;
+    height: 46.946px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #E3F2FD;
+}
+.year{
+    position: relative;
+    top: 10px;
+    left: 10.98px;
+    color: #0083EC;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 125% */
+    letter-spacing: 0.1px;
+    }
+.sheets{
+    position: relative;
+    top: 8px;
+    left: 11px;
+    color: #4B5568;
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.1px;
+}
