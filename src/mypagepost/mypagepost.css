@@ -2,7 +2,6 @@
     position: absolute;
     width: 500px;
     height: 700px;
-    background-color: #D9D9D9;
     left: 100vh;
 }
 #Post-written-name{
@@ -39,7 +38,10 @@
     border-radius: 10px;
     background: #E3F2FD;
 }
-.year{
+#year{
+    border: none;
+    outline: none;
+    background: #E3F2FD;
     position: relative;
     top: 10px;
     left: 10.98px;
@@ -61,5 +63,62 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    letter-spacing: 0.1px;
+}
+.post{
+    position: relative;
+    top: 20px;
+    overflow-x: hidden;
+    right: 340px;
+    width: 500px;
+    height: 500px;
+}
+.post1{
+    position: relative;
+    margin-top: 50px;
+    width: 440px;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #EFEFEF;
+}
+.post2{
+    position: relative;
+    margin-top: 30px;
+    width: 440px;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #EFEFEF;
+}
+
+.month{
+    position: relative;
+    top: 15px;
+    left: 20px;
+    color: #000;
+    font-family: Roboto;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 95.238% */
+    letter-spacing: 0.1px;
+}
+.number{
+    position: relative;
+    left: 370px;
+    bottom: 12px;
+    display: flex;
+    width: 48px;
+    height: 29px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #000;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 100% */
     letter-spacing: 0.1px;
 }
