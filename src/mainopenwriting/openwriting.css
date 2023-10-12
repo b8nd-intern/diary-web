@@ -14,7 +14,7 @@
 }
 
 .openWritingtext {
-    width:20%;
+    width:30%;
     margin-top:57px;
     position: absolute;
 }
@@ -25,13 +25,15 @@
     cursor: pointer;
 }
 
-.openWritingtext span:nth-child(1) {
+.openWhether {
     margin-right:40px;
     color:#000000;
+    text-decoration-line: none;
 }
 
-.openWritingtext span:nth-child(2) {
+.PrivateWhether {
     color:#A1A1A1;
+    text-decoration-line: none;
 }
 
 .openColorChange {

@@ -1,6 +1,9 @@
 import React from "react";
 import Footer from "../mainfootercomponent/footer";
 import "./writing.css";
+import { Link } from "react-router-dom";
+import WritingIcon from "../writingIcon/writingicon";
+import Calender from "../maincalendar/calender";
 
 const writing = () => {
   return (
@@ -9,8 +12,15 @@ const writing = () => {
       <div className="writingNotepad">
         <div>
           <div className="writingtext">
-            <span>공개</span>
-            <span>비공개</span>
+            <Link className="open_openWhether" to="/mainopenewriting">
+              <span>공개</span>
+            </Link>
+            <Link className="open_PrivateWhether" to="/mainprivatewriting">
+              <span>비공개</span>
+            </Link>
+          </div>
+          <div>
+            <WritingIcon />
           </div>
           <div className="colorChange">
             <button type="button"></button>
@@ -26,6 +36,7 @@ const writing = () => {
           </div>
         </div>
       </div>
+      <Calender/>
     </div>
   );
 };

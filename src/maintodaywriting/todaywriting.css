@@ -1,11 +1,11 @@
-.calendar {
+.today {
   width: 50%;
   height: 100%;
 
-  margin-left: 50%;
+  float: right;
 }
 
-.calendar P {
+.today P {
   font-size: 25px;
   font-weight: normal;
 

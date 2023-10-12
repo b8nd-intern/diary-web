@@ -1,0 +1,79 @@
+.calenderBackground {
+  width: 289px;
+  height: 399px;
+
+  user-select: none;
+  position: relative;
+  position: fixed;
+}
+
+.react-calendar {
+  /* 달력 전체 */
+  width: 350px;
+  height: 420px;
+
+  background: #ffffff;
+
+  margin-top: 30%;
+  margin-left: 52%;
+
+  border: none;
+  border-radius: 10px;
+
+  position: absolute;
+}
+
+.react-calendar__navigation__label {
+  /* 년도,월 */
+
+  font-size: 14px;
+  font-weight: bold;
+
+  margin-bottom: 5%;
+
+  background-color: white;
+}
+
+.react-calendar__month-view__weekdays {
+  /* 월,화 ... */
+  font-size: 14px;
+  font-weight: lighter;
+
+  margin-bottom: 3%;
+}
+
+.react-calendar button {
+  /* 달력 모든 버튼 */
+  border: none;
+}
+
+.react-calendar__navigation__arrow {
+  /* 이전달+다음달 */
+  font-size: 30px;
+  float: right;
+
+  background-color: white;
+  cursor: pointer;
+}
+
+.react-calendar__month-view__days__day {
+  /* 일 */
+  height: 50px;
+
+  background-color: #f3f3f3;
+  border-radius: 10px;
+
+  margin-bottom: 3%;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  /* 다음달 날들 */
+  color: white;
+  background-color: white;
+}
+
+.react-calendar__month-view__weekdays abbr[title] {
+  /* 월,화 ... 사용자 에이전트 스타일시트 바꾸기용 */
+  text-decoration: none;
+  margin-left: 40%;
+}

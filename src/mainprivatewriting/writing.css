@@ -14,7 +14,7 @@
 }
 
 .writingtext {
-    width:20%;
+    width:30%;
     margin-top:57px;
     position: absolute;
 }
@@ -24,14 +24,15 @@
     font-weight: bold;
     cursor: pointer;
 }
-
-.writingtext span:nth-child(1) {
+.open_openWhether {
     margin-right:40px;
     color:#A1A1A1;
+    text-decoration-line: none;
 }
 
-.writingtext span:nth-child(2) {
+.open_PrivateWhether {
     color:#000000;
+    text-decoration-line: none;
 }
 
 .colorChange {

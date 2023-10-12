@@ -1,6 +1,9 @@
 import React from "react";
 import Footer from "../mainfootercomponent/footer";
 import "./openwriting.css";
+import { Link } from "react-router-dom";
+import WritingIcon from "../writingIcon/writingicon";
+import Calender from "../maincalendar/calender";
 
 const openwriting = () => {
   return (
@@ -9,8 +12,15 @@ const openwriting = () => {
       <div className="openWritingNotepad">
         <div>
           <div className="openWritingtext">
-            <span>공개</span>
-            <span>비공개</span>
+            <Link className="openWhether" to="/mainopenewriting">
+              <span>공개</span>
+            </Link>
+            <Link className="PrivateWhether" to="/mainprivatewriting">
+              <span>비공개</span>
+            </Link>
+          </div>
+          <div>
+            <WritingIcon />
           </div>
           <div className="openColorChange">
             <button type="button"></button>
@@ -26,6 +36,7 @@ const openwriting = () => {
           </div>
         </div>
       </div>
+      <Calender/>
     </div>
   );
 };

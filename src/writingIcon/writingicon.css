@@ -1,0 +1,20 @@
+.writingIcon {
+    margin-top:108px;
+    right:25.5%;
+
+    position: fixed;
+    position: absolute;
+}
+
+.writingIcon button {
+    border-radius:100%;
+    border: none;
+
+    background-color:#F8F8F8;
+}
+
+.writingIcon img {
+    width:32px;
+
+    cursor: pointer;
+}

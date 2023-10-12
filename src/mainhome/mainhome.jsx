@@ -8,7 +8,7 @@ const mainhome = () => {
     <div>
       <Footer />
       <TodayWriting />
-      {/* <Calender/> */}
+      <Calender/>
     </div>
   );
 };
