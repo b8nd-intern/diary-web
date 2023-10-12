@@ -1,0 +1,23 @@
+.grassBox{
+    position: absolute;
+    top: 400px;
+    width: 700px;
+    height: 300px;
+    background-color: aliceblue;
+}
+.grassBox>.month{
+    position: relative;
+    width: 50px;
+    height: 270px;
+    color: #727272;
+    font-family: Akshar;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.1px;
+}
+.fr{
+    position: relative;
+    margin-top: 10px;
+}

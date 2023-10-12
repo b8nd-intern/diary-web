@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import Fotter from "../mainfootercomponent/footer"
 import Post from "../mypagepost/mypagepost"
+import Grass from "../mypagegrass/mypagegrass"
 
 export default function MyPage() {
   return (
@@ -18,6 +19,7 @@ export default function MyPage() {
           </div>
         </div>
       </div>
+      <Grass />
       <Post />
       <Fotter />
     </div>

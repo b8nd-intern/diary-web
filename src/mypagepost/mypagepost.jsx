@@ -2,6 +2,11 @@ import React from "react";
 import "./mypagepost.css";
 
 export default function mypagepost(){
+         function handclick(){
+            
+         }
+
+
     return(
         <div className="mypagepost">
             <div className="Post-written">
@@ -17,7 +22,7 @@ export default function mypagepost(){
                     </select>
                 </span>
                 <div className="post">
-                    <div className="post1">
+                    <div className="post1" onClick={handclick} >
                         <span className="month">1월</span>
                         <span className="number">15장</span>
                     </div>
