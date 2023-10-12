@@ -2,8 +2,19 @@ import "../mypagegrass/mypagegrass.css"
 
 
 
-export default function grass(){
 
+export default function grass(){
+    
+    function Day(){
+        return(
+        <div className="Grass_month">
+                <div className="1day"></div>
+                <div className="2day"></div>
+                <div className="3day"></div>
+                <div className="4day"></div>
+        </div>
+        )
+    }
 
     return(
         <div className="content">
@@ -32,9 +43,7 @@ export default function grass(){
                     <div className="mo" id="12month">12월</div>
                 </div>
                 <div className="grassBox_box">
-                    <div className="1month">
-                        <div></div>
-                    </div>
+                    <Day />
                 </div>
             </div>
         </div>
