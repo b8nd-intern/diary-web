@@ -7,11 +7,40 @@ export default function grass(){
     
     function Day(){
         return(
-        <div className="Grass_month">
-                <div className="1day"></div>
-                <div className="2day"></div>
-                <div className="3day"></div>
-                <div className="4day"></div>
+        <div className="Grass_day">
+                <div className="day1"></div>
+                <div className="day2"></div>
+                <div className="day2"></div>
+                <div className="day2"></div>
+                <div className="day2"></div>
+                <div className="day2"></div>
+                <div className="day2"></div>
+                <div className="day3"></div>
+                <div className="day3"></div>
+                <div className="day3"></div>
+                <div className="day3"></div>
+                <div className="day3"></div>
+                <div className="day3"></div>
+                <div className="day3"></div>
+                <div className="day4"></div>
+                <div className="day4"></div>
+                <div className="day4"></div>
+                <div className="day4"></div>
+                <div className="day4"></div>
+                <div className="day4"></div>
+                <div className="day4"></div>
+                
+                <div className="day5"></div>
+                <div className="day5"></div>
+                <div className="day5"></div>
+                <div className="day5"></div>
+                <div className="day5"></div>
+                <div className="day5"></div>
+                <div className="day5"></div>
+
+                <div className="day6"></div>
+                <div className="day6"></div>
+                <div className="day6"></div>
         </div>
         )
     }

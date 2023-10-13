@@ -14,7 +14,7 @@ export default function mypagepost(){
                 <div id="Post-written-number">20장</div>
                 <div id="post_view">
                 <span>
-                    <div className="sheets">520장</div>
+                    <div className="sheets">총520장</div>
                     <select id="year">
                         <option value="2023">2023</option>
                         <option value="2022">2022</option>
