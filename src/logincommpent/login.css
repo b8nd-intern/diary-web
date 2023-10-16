@@ -9,6 +9,8 @@
     position: absolute;
     left: 480px;
     top: 15%;
+    border-radius: 20px;
+    background: #B6E0FF;
   }
   .group > h1{
     text-align: center;
@@ -16,7 +18,8 @@
     top: 200px;
     font-size: 60px;
   }
-  .googleLog > input{
+  .googleLog>.Button_link > input{
+    cursor: pointer;
     width: 340px;
     height: 70px;
     outline: none;

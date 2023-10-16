@@ -29,6 +29,11 @@
     left: 67px;
     top: 102px;
 }
+#UserName{
+    position: absolute;
+    left: 300px;
+    top: 270px;
+}
 .profile_img{
     position: relative;
     top: 172px;
