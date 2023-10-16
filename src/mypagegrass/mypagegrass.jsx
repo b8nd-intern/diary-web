@@ -1,8 +1,6 @@
 import "../mypagegrass/mypagegrass.css"
 
 
-
-
 export default function grass(){
     
     function Day(){
