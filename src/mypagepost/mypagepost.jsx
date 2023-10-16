@@ -19,7 +19,7 @@ export default function Mypagepost(){
   function handclick(event) {
     const target = event.target;
     const post = target.classList.contains("post2") ? target: target.closest(".post2"); //이 요소가 "post2"라는 클래스를 가지고 있는지 확인한다 ,
-                                                                                        //만약 클릭한 요소가 약 클릭한 요소가 "post2" 클래스를 가지고 있으면, 그 요소를 post로 지정한다. 그렇지 않으면, 
+                                                                                        //만약 클릭한 요소가 "post2" 클래스를 가지고 있으면, 그 요소를 post로 지정한다. 그렇지 않으면, 
                                                                                         //부모 요소 중에서 "post2" 클래스를 가진 가장 가까운 요소를 찾아서 post로 설정한다
     if (post) {
       const expandedHeight = "300px";
