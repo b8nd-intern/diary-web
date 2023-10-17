@@ -1,0 +1,154 @@
+.Post-written{
+    position: absolute;
+    width: 500px;
+    height: 700px;
+    left: 100vh;
+}
+#Post-written-name{
+    position: relative;
+    top: 103px;
+    color: #000;
+    font-family: Roboto;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+}
+#Post-written-number{
+    position: relative;
+    top: 83px;
+    left: 130px;
+    color: #000;
+    font-family: Roboto;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; 
+    letter-spacing: 0.1px;
+}
+#post_view{
+    position: absolute;
+    top: 85px;
+    left: 340px;
+    border: none;
+    width: 101px;
+    height: 46.946px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #E3F2FD;
+}
+#year{
+    border: none;
+    outline: none;
+    background: #E3F2FD;
+    position: relative;
+    top: 10px;
+    left: 10.98px;
+    color: #0083EC;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 125% */
+    letter-spacing: 0.1px;
+    }
+.sheets{
+    position: relative;
+    top: 8px;
+    left: 11px;
+    color: #4B5568;
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.1px;
+}
+.post{
+    position: relative;
+    top: 20px;
+    overflow-x: hidden;
+    right: 340px;
+    width: 500px;
+    height: 500px;
+}
+.post1{
+    position: relative;
+    cursor: pointer;
+    margin-top: 50px;
+    width: 440px;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #EFEFEF;
+}
+.post2 {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    margin-top: 30px;
+    width: 440px;
+    height: 45px; /* 초기 높이 */
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #EFEFEF;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    transition: height 0.3s, box-shadow 0.3s; /* 높이 및 그림자에 대한 애니메이션 설정 */
+}
+
+
+.month{
+    position: relative;
+    top: 15px;
+    left: 20px;
+    color: #000;
+    font-family: Roboto;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 95.238% */
+    letter-spacing: 0.1px;
+}
+.number{
+    position: relative;
+    left: 370px;
+    bottom: 12px;
+    display: flex;
+    width: 48px;
+    height: 29px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #000;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 100% */
+    letter-spacing: 0.1px;
+}
+.post_one{
+    display: inline-block;
+    background: #93C2E4;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    margin-left: 35px;
+}
+.post_two{
+    display: inline-block;
+    background: #B6E0FF;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    margin-left: 35px;  
+}
+.post_thr{
+    display: inline-block;
+    background: #FEEF9F;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    margin-left: 35px;  
+}
