@@ -1,6 +1,7 @@
 import React from "react";
 import "./footer.css";
 import { Link } from "react-router-dom";
+import ind from "../../assets/img/assignment_ind.png"
 
 const footer = () => {
   return (
@@ -50,7 +51,7 @@ const footer = () => {
       </span>
       <span className="mypage mini bottomIcon">
         <Link to="/mypage">
-          <img src={require("../img/assignment_ind.png")} alt="MyPageIcon" />
+          <img src={ind} alt="MyPageIcon" />
         </Link>
       </span>
     </div>

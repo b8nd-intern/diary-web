@@ -1,12 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import React from "react";
-import Login from "./logincommpent/login";
-import Mypage from "./mypage/mypage";
-import MainHome from "./mainhome/mainhome";
-import MainPrivate from "./mainprivatewriting/writing";
-import MainOpen from "./mainopenwriting/openwriting";
-import NameLogin from "./name_login/name_login";
+import Login from "./components/Login/GoogleLogin/login";
+import Mypage from "../components/Mypage/mypage";
+import MainHome from ".components/Mainhome/mainhome";
+import MainOpen from ".components/Writing/openwriting";
+import NameLogin from "./components/Login/NameLogin/name_login";
 
 function App() {
   return (

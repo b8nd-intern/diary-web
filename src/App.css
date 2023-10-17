@@ -1,2 +1,4 @@
-@import url(./logincommpent/login.css);
+/* @import url(./logincommpent/login.css);
+ */
+ @import url(./components/Login/login.css);
 @import url(./mypage/mypage.css);

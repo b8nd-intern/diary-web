@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "../mainfootercomponent/footer";
-import TodayWriting from "../maintodaywriting/todaywriting";
-import Calender from "../maincalendar/calender";
+import Footer from "../components/footer/footer";
+import TodayWriting from "../components/Todaywriting/todaywriting";
+import Calender from "../components/Calendar/calender";
 
 const mainhome = () => {
   return (
