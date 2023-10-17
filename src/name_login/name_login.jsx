@@ -1,4 +1,5 @@
 import "./name_login.css"
+import React from "react";
 import { Link } from "react-router-dom";
 
 export default function NameLogin(){

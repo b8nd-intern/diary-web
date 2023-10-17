@@ -23,6 +23,16 @@
   position: absolute;
 }
 
+.highlighted-date {
+  width: 10px;
+  height: 10px;
+
+  margin: 0px auto;
+  
+  background-color: #ff2828;
+  border-radius: 50%;
+}
+
 .react-calendar__navigation__label {
   /* 년도,월 */
 
