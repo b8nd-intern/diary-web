@@ -86,6 +86,7 @@
 .post2 {
     position: relative;
     cursor: pointer;
+    overflow: hidden;
     margin-top: 30px;
     width: 440px;
     height: 45px; /* 초기 높이 */
@@ -126,4 +127,28 @@
     font-weight: 500;
     line-height: 20px; /* 100% */
     letter-spacing: 0.1px;
+}
+.post_one{
+    display: inline-block;
+    background: #93C2E4;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    margin-left: 35px;
+}
+.post_two{
+    display: inline-block;
+    background: #B6E0FF;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    margin-left: 35px;  
+}
+.post_thr{
+    display: inline-block;
+    background: #FEEF9F;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    margin-left: 35px;  
 }
