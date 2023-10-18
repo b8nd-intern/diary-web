@@ -1,11 +1,14 @@
 import React from "react";
-import Footer from "../components/footer/footer";
-import "./openwriting.css";
+import Footer from "../Footer/footer";
+// import Footer from "../components/footer/footer";
+import "./writing.css";
 import { Link } from "react-router-dom";
-import WritingIcon from "../writingIcon/writingicon";
-import Calender from "../components/Calendar/calender";
+// import WritingIcon from "../writingIcon/writingicon";
+import Writingicon from "../../noteIcon/writingicon";
+import Calender from "../Calendar/calender";
+// import Calender from "../components/Calendar/calender";
 
-const openwriting = () => {
+const Openwriting = () => {
   return (
     <div>
       <Footer />
@@ -20,7 +23,7 @@ const openwriting = () => {
             </Link>
           </div>
           <div>
-            <WritingIcon />
+            <Writingicon />
           </div>
           <div className="openColorChange">
             <button type="button"></button>
@@ -41,4 +44,4 @@ const openwriting = () => {
   );
 };
 
-export default openwriting;
+export default Openwriting;

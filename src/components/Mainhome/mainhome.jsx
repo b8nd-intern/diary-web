@@ -1,13 +1,14 @@
 import React from "react";
-import Footer from "../components/footer/footer";
-import TodayWriting from "../components/Todaywriting/todaywriting";
-import Calender from "../components/Calendar/calender";
+import Footer from "../Footer/footer";
+import Todaywriting from "../Todaywriting/todaywriting";
+import Calender from "../Calendar/calender";
+import "./mainhome.css";
 
 const mainhome = () => {
   return (
     <div>
       <Footer />
-      <TodayWriting />
+      <Todaywriting />
       <Calender/>
     </div>
   );

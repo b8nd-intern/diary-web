@@ -7,7 +7,7 @@ import test4 from "../assets/img/Emotion (4).png"
 import test5 from "../assets/img/Emotion (5).png"
 
 
-const writingicon = () => {
+const Writingicon = () => {
 
     const test = [`${test1}`,`${test2}`,`${test3}`,`${test4}`,`${test5}`]
     return (
@@ -29,4 +29,4 @@ const writingicon = () => {
     );
 };
 
-export default writingicon;
+export default Writingicon;

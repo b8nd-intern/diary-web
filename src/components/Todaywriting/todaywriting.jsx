@@ -1,7 +1,7 @@
 import React from "react";
 import "./todaywriting.css";
 
-const todaywriting = () => {
+const Todaywriting = () => {
   return (
     <div className="today">
       <p>오늘의 글</p>
@@ -16,4 +16,4 @@ const todaywriting = () => {
   );
 };
 
-export default todaywriting;
+export default Todaywriting;

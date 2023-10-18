@@ -3,7 +3,7 @@ import "./footer.css";
 import { Link } from "react-router-dom";
 import ind from "../../assets/img/assignment_ind.png"
 
-const footer = () => {
+const Footer = () => {
   return (
     <div className="bottom">
       <span className="home mini bottomIcon">
@@ -24,7 +24,7 @@ const footer = () => {
         </Link>
       </span>
       <span className="writing bottomIcon">
-        <Link to="/mainprivatewriting">
+        <Link to="/mainopenewriting">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="100"
@@ -58,4 +58,4 @@ const footer = () => {
   );
 };
 
-export default footer;
+export default Footer;

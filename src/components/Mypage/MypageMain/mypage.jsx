@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
 import React from "react";
-import Fotter from "../footer/footer"
-import Post from "../src/mypagepost/mypagepost"
-import Grass from "../Mypage/Grass/mypagegrass"
-import icon from "../assets/img/icon.png"
+import Footer from "../../Footer/footer";
+import Post from "../../Mypage/Post/mypagepost"
+import Grass from "../Grass/mypagegrass";
+import icon from "../../../assets/img/icon.png"
+
 
 export default function MyPage() {
   return (
@@ -23,7 +23,7 @@ export default function MyPage() {
       </div>
       <Grass />
       <Post />
-      <Fotter />
+      <Footer />
     </div>
   );
 }

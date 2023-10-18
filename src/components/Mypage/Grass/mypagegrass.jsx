@@ -1,7 +1,7 @@
 import "./mypagegrass.css"
 import React from "react";
 
-export default function grass(){
+export default function Grass(){
     
     function Day(){
         return(
