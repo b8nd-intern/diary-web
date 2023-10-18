@@ -60,7 +60,6 @@
 .react-calendar__navigation__arrow {
   /* 이전달+다음달 */
   font-size: 30px;
-  float: right;
 
   background-color: white;
   cursor: pointer;
@@ -86,4 +85,5 @@
   /* 월,화 ... 사용자 에이전트 스타일시트 바꾸기용 */
   text-decoration: none;
   margin-left: 40%;
+
 }

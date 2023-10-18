@@ -6,17 +6,19 @@ const Calender = () => {
   const [today] = useState(new Date());
 
   useEffect(() => {
-    const prevButton = document.querySelector(
+    const prev2Button = document.querySelector(
       ".react-calendar__navigation__prev2-button"
     );
-    const nextButton = document.querySelector(
+    const next2Button = document.querySelector(
       ".react-calendar__navigation__next2-button"
     );
-    if (prevButton || nextButton) {
-      prevButton.remove();
-      nextButton.remove();
+
+    if (prev2Button || next2Button) {
+      prev2Button.remove();
+      next2Button.remove();
     }
   }, []);
+
   const tileContent = ({ date, view }) => {
     if (view === "month" && date.getDate() === today.getDate()) {
       return <div className="highlighted-date"></div>;
