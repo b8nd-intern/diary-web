@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../../Footer/footer";
+import Footer from "../../footer/footer";
 import Post from "../../Mypage/Post/mypagepost"
 import Grass from "../Grass/mypagegrass";
 import icon from "../../../assets/img/icon.png"

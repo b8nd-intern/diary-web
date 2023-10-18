@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../Footer/footer";
+import Footer from "../footer/footer";
 // import Footer from "../components/footer/footer";
 import "./writing.css";
 import { Link } from "react-router-dom";

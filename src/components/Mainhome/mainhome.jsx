@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../Footer/footer";
+import Footer from "../footer/footer";
 import Todaywriting from "../Todaywriting/todaywriting";
 import Calender from "../Calendar/calender";
 import "./mainhome.css";
