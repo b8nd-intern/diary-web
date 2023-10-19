@@ -27,8 +27,9 @@ export default function NameLogin() {
   };
 
   const checkStartEnabled = () => {
-    if (name) { //이름이 써져있다면
+    if (name) { //이름이 써지면
       StartDisabled(false);
+      
     }
     else if(imageSrc){ //프로필이 설정이 되었다면
         StartDisabled(false);
@@ -40,12 +41,13 @@ export default function NameLogin() {
   const Starthandclick=()=>{
     if (name && imageSrc ===" "){
         alert("프로필과 이름을 입력해주세요")
+        StartDisabled(true)
     }
     else if(name === " "){
-        alert("이름을 입력해주세요")
+      alert("이름을 입력해주세요")
     }
     else{
-        // alert("프로필을 입력해주세요")
+      alert("프로필을 입력해주세요")
     }
   }
   
@@ -63,7 +65,7 @@ export default function NameLogin() {
           <input type="file" name="file" id="file" onChange={onUpload} />
         </form>
         <div id="login_write">
-          안녕하세요 함께 오늘 하루를 작성해볼까요?
+          <p>안녕하세요 함께 오늘 하루를 작성해볼까요?</p>
         </div>
         <form className="googleLog">
           <input
@@ -77,7 +79,6 @@ export default function NameLogin() {
             <input type="submit"
               value="시작하기"
              onClick={Starthandclick} 
-             maxLength={5}
              disabled={startDisabled}/>
           </Link>
         </form>
