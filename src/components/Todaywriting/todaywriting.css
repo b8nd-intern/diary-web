@@ -37,6 +37,10 @@
   font-size:16px;
   
   resize: none;
+
+  outline:none;
+
+  cursor:default;
 }
 
 .notepad textarea:nth-child(1) {

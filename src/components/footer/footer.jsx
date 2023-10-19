@@ -37,14 +37,14 @@ const Footer = () => {
               x="2"
               y="2"
               stroke="#000"
-              stroke-width="4"
+              strokeWidth="4"
               rx="18"
             />
             <path
               fill="#000"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="m64.223 34.138 2.625 2.626a3.864 3.864 0 0 1 0 5.504L41.127 68H33v-8.13l20.22-20.247 5.501-5.485a3.895 3.895 0 0 1 5.502 0ZM36.888 64.11l2.742.117 19.091-19.12-2.74-2.742-19.093 19.1v2.645Z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
           </svg>
         </Link>

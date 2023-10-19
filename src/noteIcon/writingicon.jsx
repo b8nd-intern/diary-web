@@ -1,32 +1,28 @@
-import React from 'react';
+import React from "react";
 import "./writingicon.css";
-import test1 from "../assets/img/Emotion (1).png"
-import test2 from "../assets/img/Emotion (2).png"
-import test3 from "../assets/img/Emotion (3).png"
-import test4 from "../assets/img/Emotion (4).png"
-import test5 from "../assets/img/Emotion (5).png"
+import smile from "../assets/img/Emotion (1).png";
+import wacky from "../assets/img/Emotion (2).png";
+import woo from "../assets/img/Emotion (3).png";
+import stress from "../assets/img/Emotion (4).png";
+import angry from "../assets/img/Emotion (5).png";
 
+const Writingicon = ({ onImageClick }) => {
+  const EmotionImg = [smile, wacky, woo, stress, angry];
 
-const Writingicon = () => {
+  const handleImageClick = (imageUrl) => {
+    onImageClick(imageUrl);
+    console.log(imageUrl);
+  };
 
-    const test = [`${test1}`,`${test2}`,`${test3}`,`${test4}`,`${test5}`]
-    return (
-        <div className='writingIcon'>
-            {test.map((key) => {
-                return(
-                    <button>
-                        <img src={key}/>
-                    </button>
-                )
-
-            })}
-            {/* <button><img src={test} alt="writingIconHappy"/></button>
-            <button><img src={require("../img/Emotion (2).png")} alt="writingIconLaugh"/></button>
-            <button><img src={require("../img/Emotion (3).png")} alt="writingIconWorry"/></button>
-            <button><img src={require("../img/Emotion (4).png")} alt="writingIconSad"/></button>
-            <button><img src={require("../img/Emotion (5).png")} alt="writingIconAngry"/></button>  */}
-        </div>
-    );
+  return (
+    <div className="writingIcon">
+      {EmotionImg.map((key, index) => (
+        <button key={index} onClick={() => handleImageClick(key)}>
+          <img src={key} alt={`writingIcon${index + 1}`} />
+        </button>
+      ))}
+    </div>
+  );
 };
 
 export default Writingicon;
