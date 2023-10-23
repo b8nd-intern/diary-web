@@ -35,7 +35,7 @@ const Calender = () => {
       <span>{formattedDate}</span>
       <Calendar
         tileContent={tileContent}
-        formatDay={(date) => moment(date).format("D")}
+        formatDay={(locale,date) => moment(date).format("D")}
       />
     </div>
   );

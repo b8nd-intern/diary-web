@@ -4,6 +4,7 @@ import "./writing.css";
 import Writingicon from "../../noteIcon/writingicon";
 import Calendar from "../Calendar/calender";
 import smile from "../../assets/img/Emotion (1).png";
+import Swal from "sweetalert2";
 
 const Openwriting = () => {
   const [selectedImage, setSelectedImage] = useState(smile);
@@ -11,6 +12,20 @@ const Openwriting = () => {
   const [noteText, setNoteText] = useState("");
   const [isPublicSelected, setIsPublicSelected] = useState(false);
 
+  const handleUploadClick = () => {
+    if (noteText.trim() !== "") {
+      Swal.fire({
+        icon: "success",
+        title: "업로드가 성공적으로 완료되었습니다!",
+      });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "내용이 없어 업로드를 실패 했습니다.",
+        text: "내용을 추가해주세요!",
+      });
+    }
+  };
   useEffect(() => {
     const savedNoteText = localStorage.getItem("noteText");
     const savedSelectedColor = localStorage.getItem("selectedColor");
@@ -108,7 +123,9 @@ const Openwriting = () => {
             ></textarea>
           </div>
           <div className="openNotepadSubmit">
-            <button type="button">올리기</button>
+            <button type="button" onClick={handleUploadClick}>
+              올리기
+            </button>
           </div>
         </div>
       </div>
