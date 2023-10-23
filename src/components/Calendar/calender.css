@@ -5,14 +5,14 @@
   user-select: none;
   position: relative;
   position: fixed;
+
+  background-color: rgb(255, 255, 255);
 }
 
 .react-calendar {
   /* 달력 전체 */
   width: 350px;
   height: 420px;
-
-  background: #ffffff;
 
   margin-top: 30%;
   margin-left: 52%;
@@ -33,15 +33,14 @@
   border-radius: 50%;
 }
 
-.react-calendar__navigation__label {
-  /* 년도,월 */
-
+.calenderBackground span {
   font-size: 14px;
   font-weight: bold;
 
-  margin-bottom: 5%;
+  margin-top:33%;
+  margin-left:55%;
 
-  background-color: white;
+  position: absolute;
 }
 
 .react-calendar__month-view__weekdays {
@@ -57,9 +56,15 @@
   border: none;
 }
 
+.react-calendar__navigation__prev-button {
+  margin-left:85%;
+}
+
 .react-calendar__navigation__arrow {
   /* 이전달+다음달 */
   font-size: 30px;
+
+  margin-bottom: 3%;
 
   background-color: white;
   cursor: pointer;
@@ -67,22 +72,24 @@
 
 .react-calendar__month-view__days__day {
   /* 일 */
-  height: 50px;
+  max-width:40px;
+  height: 40px; 
 
   background-color: #f3f3f3;
   border-radius: 10px;
 
-  margin-bottom: 3%;
-}
-
-.react-calendar__month-view__days__day--neighboringMonth {
-  /* 다음달 날들 */
-  color: white;
-  background-color: white;
+  margin-bottom: 6%;
+  margin-left:2.5%;
 }
 
 .react-calendar__month-view__weekdays abbr[title] {
   /* 월,화 ... 사용자 에이전트 스타일시트 바꾸기용 */
   text-decoration: none;
   margin-left: 40%;
+  
 }
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: white;
+  background-color: white;
+}
+
