@@ -11,6 +11,7 @@ const Writingicon = ({ onImageClick }) => {
 
   const handleImageClick = (imageUrl) => {
     onImageClick(imageUrl);
+    localStorage.setItem("selectedImage", imageUrl);
     console.log(imageUrl);
   };
 
