@@ -7,9 +7,11 @@ import "./mainhome.css";
 const mainhome = () => {
   return (
     <div>
-      <Footer />
-      <Todaywriting />
-      <Calender/>
+      <div className="mainBox">
+        <Calender />
+        <Todaywriting />
+        <Footer />
+      </div>
     </div>
   );
 };

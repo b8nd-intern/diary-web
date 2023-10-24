@@ -31,12 +31,14 @@ const Calender = () => {
     return null;
   };
   return (
-    <div className="calenderBackground">
-      <span>{formattedDate}</span>
-      <Calendar
-        tileContent={tileContent}
-        formatDay={(locale,date) => moment(date).format("D")}
-      />
+    <div className="mainBack">
+      <div className="calenderBackground">
+        <span>{formattedDate}</span>
+        <Calendar
+          tileContent={tileContent}
+          formatDay={(locale, date) => moment(date).format("D")}
+        />
+      </div>
     </div>
   );
 };
