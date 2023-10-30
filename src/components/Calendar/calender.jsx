@@ -30,7 +30,7 @@ const Calender = () => {
     if (view === "month" && date.getDate() === today.getDate()) {
       if (date.getMonth() !== today.getMonth()) {
         return null;
-      } 
+      }
       return showHighlightedDate ? (
         <div className="highlighted-date"></div>
       ) : null;
