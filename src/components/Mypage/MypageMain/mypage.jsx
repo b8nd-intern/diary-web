@@ -1,9 +1,8 @@
 import React from "react";
 import Footer from "../../footer/footer";
-import Post from "../../Mypage/Post/mypagepost"
+import Post from "../../Mypage/Post/mypagepost";
 import Grass from "../Grass/mypagegrass";
-import icon from "../../../assets/img/icon.png"
-
+import icon from "../../../assets/img/icon.png";
 
 export default function MyPage() {
   return (
@@ -11,7 +10,9 @@ export default function MyPage() {
       <div className="main">
         <div className="profile">
           <h1 id="profile_name">프로필</h1>
-          <span id="UserName"><h3>이해준</h3></span>
+          <span id="UserName">
+            <h3>이해준</h3>
+          </span>
           <div className="profile_img">
             <label htmlFor="img_upload">
               <img id="img" src={icon} alt="" />
@@ -23,7 +24,7 @@ export default function MyPage() {
       </div>
       <Grass />
       <Post />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
