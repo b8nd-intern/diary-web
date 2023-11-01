@@ -3,11 +3,13 @@ import Footer from "../../footer/footer";
 import Post from "../../Mypage/Post/mypagepost"
 import Grass from "../Grass/mypagegrass";
 import icon from "../../../assets/img/icon.png"
+import { useState,useRef,setFile} from 'react';
 
 
 export default function MyPage() {
   return (
     <div className="mypage">
+      <div className="mypage_main">
       <div className="main">
         <div className="profile">
           <h1 id="profile_name">프로필</h1>
@@ -21,9 +23,10 @@ export default function MyPage() {
           </div>
         </div>
       </div>
-      <Grass />
+       <Grass /> 
       <Post />
-      <Footer />
+      <Footer /> 
+      </div>
     </div>
   );
 }

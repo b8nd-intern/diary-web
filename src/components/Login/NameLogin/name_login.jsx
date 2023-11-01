@@ -1,62 +1,61 @@
 import React, { useState } from "react";
 import "./name_login.css";
-import { Link } from "react-router-dom";
+import {  Link,useNavigate } from "react-router-dom";
+
+
+
 
 export default function NameLogin() {
-  const [imageSrc, setImageSrc] = useState(null);
+  const navigate = useNavigate()
+  const [imageSrc, setImageSrc] = useState(new FormData());
   const [name, setName] = useState("");
-  const [startDisabled, StartDisabled] = useState(true);
+  const [startDisabled,setStartDisabled] = useState(true)
+  // const [startDisabled, setStartDisabled] = useState(true);
 
   const onUpload = (e) => {
+    checkStartEnabled();
     const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    return new Promise((resolve) => {
       reader.onload = () => {
+      imageSrc.append("images",file)
         setImageSrc(reader.result || null);
-        checkStartEnabled();
-      };
+        resolve()
+        for (let value of imageSrc.values()) {
+          console.log(value);
+        }
+      }
+    })
+  };
+  const Starthandclick = () => {
+    if (name === "" || !imageSrc) {
+      alert("이름과 프로필 사진을 모두 입력해주세요.");
+    } else {
+      navigate("/mainhome");
     }
   };
 
   const onNameChange = (e) => {
     const newName = e.target.value;
     setName(newName);
-    checkStartEnabled();
+    console.log(newName)
+ 
   };
 
   const checkStartEnabled = () => {
-    if (name) { //이름이 써지면
-      StartDisabled(false);
-      
-    }
-    else if(imageSrc){ //프로필이 설정이 되었다면
-        StartDisabled(false);
-    }
-     else {
-      StartDisabled(true);
+    if (name || imageSrc) {
+      setStartDisabled(false);
+    } else {
+      setStartDisabled(true);
     }
   };
-  const Starthandclick=()=>{
-    if (name && imageSrc ===" "){
-        alert("프로필과 이름을 입력해주세요")
-        StartDisabled(true)
-    }
-    else if(name === " "){
-      alert("이름을 입력해주세요")
-    }
-    else{
-      alert("프로필을 입력해주세요")
-    }
-  }
-  
   return (
     <div className="Name_Login">
     
       <div className="group2">
         <div id="por">
-          {imageSrc && <img src={imageSrc} alt="Preview" />}
+          {imageSrc && <img src={imageSrc}  />}
         </div>
         <form action="" id="por_form">
           <label htmlFor="file">
@@ -74,13 +73,15 @@ export default function NameLogin() {
             placeholder="이름을 적어주세요"
             value={name}
             onChange={onNameChange}
-          />
-          <Link to="/mainhome" className="Button_home">
+          /> 
             <input type="submit"
               value="시작하기"
-             onClick={Starthandclick} 
+              className="Button_home"
+              onClick={() => {
+                Starthandclick();
+                navigate("/mainhome");
+              }}
              disabled={startDisabled}/>
-          </Link>
         </form>
       </div>
     </div>  

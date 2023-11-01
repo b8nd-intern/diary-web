@@ -1,17 +1,13 @@
 import React from "react";
-// import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import GOOGLE from "../../../Google/google"
+
 
 export default function Login() {
-
   return (
     <div className="login">
       <div className="group">
         <h1>LOGO</h1>
-        <form className="googleLog">
-        <Link to="/name_login" className="Button_link"><input type="submit" value=""></input> </Link> 
-        </form>
-        
+        <GOOGLE className="GOOGLE"></GOOGLE>
       </div>
     </div>
   );
