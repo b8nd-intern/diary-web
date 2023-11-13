@@ -4,6 +4,7 @@ import "./calender.css";
 import moment from "moment";
 
 const Calender = () => {
+  // 필요 없는 버튼 삭제
   const [today, setDate] = useState(new Date());
   const formattedDate = `${today.getFullYear()}년 ${today.getMonth() + 1}월`;
 
@@ -24,20 +25,21 @@ const Calender = () => {
     }
   }, []);
 
+  // 달력 강조 포인트 생성
   const [showHighlightedDate, setShowHighlightedDate] = useState(true);
 
   const tileContent = ({ date, view }) => {
     if (view === "month" && date.getDate() === today.getDate()) {
       if (date.getMonth() !== today.getMonth()) {
         return null;
-      }
+      }                  
       return showHighlightedDate ? (
         <div className="highlighted-date"></div>
       ) : null;
     }
     return null;
   };
-
+// 다음달로 넘어가는 버튼 클릭 시 화면 전환
   const handlePrevButtonClick = () => {
     const prevMonth = new Date(today.getFullYear(), today.getMonth() - 1, 1);
     setDate(prevMonth);

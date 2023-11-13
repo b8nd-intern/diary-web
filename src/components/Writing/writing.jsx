@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Footer from "../footer/footer";
 import "./writing.css";
 import Writingicon from "../../noteIcon/writingicon";
@@ -11,13 +12,33 @@ const Openwriting = () => {
   const [selectedColor, setSelectedColor] = useState("");
   const [noteText, setNoteText] = useState("");
   const [isPublicSelected, setIsPublicSelected] = useState(false);
+  const colorSelect = ["#e3f2fd", "#b6e0ff", "#93c2e4", "#feef9f"];
 
   const handleUploadClick = () => {
+    //서버에 보내기
     if (noteText.trim() !== "") {
-      Swal.fire({
-        icon: "success",
-        title: "업로드가 성공적으로 완료되었습니다!",
-      });
+      axios
+        .post("https://15.164.163.4/post/create", {
+          content: noteText,
+          color: selectedColor,
+          emoji: selectedImage,
+          isSecret: !isPublicSelected,
+        })
+        .then((response) => {
+          if (response.status === 200) {
+            Swal.fire({
+              icon: "success",
+              title: "업로드가 성공적으로 완료되었습니다!",
+            });
+          }
+        })
+        .catch((error) => {
+          Swal.fire({
+            icon: "error",
+            title: "업로드를 실패 했습니다.",
+            text: "서버와의 통신에 문제가 발생했습니다!",
+          });
+        });
     } else {
       Swal.fire({
         icon: "error",
@@ -26,6 +47,7 @@ const Openwriting = () => {
       });
     }
   };
+  //공개와 비공개,색상,이미지 선택
   useEffect(() => {
     const savedNoteText = localStorage.getItem("noteText");
     const savedSelectedColor = localStorage.getItem("selectedColor");
@@ -92,22 +114,13 @@ const Openwriting = () => {
               <Writingicon onImageClick={handleImageClick} />
             </div>
             <div className="openColorChange">
-              <button
-                type="button"
-                onClick={() => handleColorButtonClick("#e3f2fd")}
-              ></button>
-              <button
-                type="button"
-                onClick={() => handleColorButtonClick("#b6e0ff")}
-              ></button>
-              <button
-                type="button"
-                onClick={() => handleColorButtonClick("#93c2e4")}
-              ></button>
-              <button
-                type="button"
-                onClick={() => handleColorButtonClick("#feef9f")}
-              ></button>
+              {colorSelect.map((color) => (
+                <button
+                  type="button"
+                  key={color}
+                  onClick={() => handleColorButtonClick(color)}
+                ></button>
+              ))}
             </div>
             <div
               className="openNotepad"

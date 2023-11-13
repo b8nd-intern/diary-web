@@ -1,7 +1,7 @@
 import React from "react";
 import "./footer.css";
 import { Link } from "react-router-dom";
-import ind from "../../assets/img/assignment_ind.png"
+import ind from "../../assets/img/assignment_ind.png";
 
 const Footer = () => {
   return (

@@ -113,7 +113,7 @@
 
 .handleImageClick {
   width: 10rem;
-  margin-left:18rem;
+  margin-left: 18rem;
   position: relative;
 }
 
@@ -132,8 +132,8 @@
 }
 
 .openNotepad textarea {
-  width: 450px;
-  height: 330px;
+  width: 440px;
+  height: 340px;
 
   border: none;
   border-radius: 1%;
@@ -142,6 +142,7 @@
   resize: none;
 
   padding: 7px;
+  margin-left: 11px;
 
   font-size: 20px;
   font-weight: bold;

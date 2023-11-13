@@ -10,7 +10,7 @@
   margin-left: 46rem;
 }
 
-.today P {
+.todaywriring {
   width: 95px;
   font-size: 25px;
   font-weight: normal;
@@ -24,22 +24,24 @@
   position: fixed;
 }
 
-.notepad {
+.notepadBoard {
   width: 45rem;
   height: 100%;
 
   margin-top: 8rem;
 
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
-.notepad textarea {
+.notepad {
   width: 200px;
   height: 200px;
 
   border: none;
   border-radius: 5%;
   box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.298);
+
+  background-color: #93c2e4;
 
   margin-right: 70px;
   margin-left: 30px;
@@ -50,29 +52,36 @@
   font-weight: lighter;
   font-size: 16px;
 
-  resize: none;
-
   outline: none;
-
-  cursor: default;
 }
 
-.notepad textarea:nth-child(1) {
+.notepad img {
+  width: 45px;
+  height: 45px;
+}
+
+.notepad textarea {
+  width: 195px;
+  height: 135px;
+
+  font-weight: bold;
+  font-size: 15px;
+
+  resize: none;
+  outline: none;
+  border: none;
+
+  margin-left:2px;
+  margin-top:4px;
+
+  overflow-y: scroll;
+
   background-color: #93c2e4;
 }
 
-.notepad textarea:nth-child(2) {
-  background-color: #b6e0ff;
-}
+.notepad p {
+  color:#4B5568;
 
-.notepad textarea:nth-child(3) {
-  background-color: #e3f2fd;
-}
-
-.notepad textarea:nth-child(4) {
-  background-color: #feef9f;
-}
-
-.notepad textarea:nth-child(5) {
-  background-color: #93c2e4;
+  font-size:14px;
+  margin-left:7.5rem;
 }
