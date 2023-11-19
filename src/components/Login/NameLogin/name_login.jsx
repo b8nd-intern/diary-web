@@ -1,50 +1,87 @@
 import React, { useState } from "react";
 import "./name_login.css";
-import {  Link,useNavigate } from "react-router-dom";
-
-
-
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 export default function NameLogin() {
-  const navigate = useNavigate()
+  const SEREVERURL = process.env.REACT_APP_SEREVER_URL;
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+  const navigate = useNavigate();
   const [imageSrc, setImageSrc] = useState(new FormData());
   const [name, setName] = useState("");
-  const [startDisabled,setStartDisabled] = useState(true)
+  const [file, setFile] = useState();
+  const [startDisabled, setStartDisabled] = useState(true);
   // const [startDisabled, setStartDisabled] = useState(true);
 
   const onUpload = (e) => {
-    checkStartEnabled();
     const file = e.target.files[0];
-    const reader = new FileReader()
-    reader.readAsDataURL(file)
+    setFile(file);
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
     return new Promise((resolve) => {
       reader.onload = () => {
-      imageSrc.append("images",file)
+        imageSrc.append("images", file);
         setImageSrc(reader.result || null);
-        resolve()
+        resolve();
         for (let value of imageSrc.values()) {
           console.log(value);
         }
-      }
-    })
+      };
+    });
   };
-  const Starthandclick = () => {
+  const Starthandclick = async () => {
     if (name === "" || !imageSrc) {
-      alert("이름과 프로필 사진을 모두 입력해주세요.");
+      Toast.fire({
+        icon: "error",
+        title: "이름과 프로필 사진을 모두 입력해주세요.",
+      });
     } else {
-      navigate("/mainhome");
+      try {
+        const ReturnUserData = {
+          name: name,
+          picture: file,
+        };
+        const response = await axios.patch(SEREVERURL, ReturnUserData, {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        if (response.status === 200) {
+          Toast.fire({
+            icon: "success",
+            title: "로그인 성공",
+          });
+          navigate("/mainhome");
+        }
+      } catch (error) {
+        Toast.fire({
+          icon: "error",
+          title: "서버 연결 실패",
+        });
+      }
     }
   };
 
   const onNameChange = (e) => {
     const newName = e.target.value;
     setName(newName);
-    console.log(newName)
- 
+    checkStartEnabled();
   };
 
   const checkStartEnabled = () => {
-    if (name || imageSrc) {
+    if (name && imageSrc) {
       setStartDisabled(false);
     } else {
       setStartDisabled(true);
@@ -52,11 +89,8 @@ export default function NameLogin() {
   };
   return (
     <div className="Name_Login">
-    
       <div className="group2">
-        <div id="por">
-          {imageSrc && <img src={imageSrc}  />}
-        </div>
+        <div id="por">{imageSrc && <img src={imageSrc} />}</div>
         <form action="" id="por_form">
           <label htmlFor="file">
             <div className="btn-upload">프로필 설정</div>
@@ -73,17 +107,18 @@ export default function NameLogin() {
             placeholder="이름을 적어주세요"
             value={name}
             onChange={onNameChange}
-          /> 
-            <input type="submit"
-              value="시작하기"
-              className="Button_home"
-              onClick={() => {
-                Starthandclick();
-                navigate("/mainhome");
-              }}
-             disabled={startDisabled}/>
+          />
+          <input
+            type="submit"
+            value="시작하기"
+            className="Button_home"
+            onClick={() => {
+              Starthandclick();
+            }}
+            disabled={startDisabled}
+          />
         </form>
       </div>
-    </div>  
+    </div>
   );
 }

@@ -10,47 +10,46 @@
 .group2 {
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   position: absolute;
   width: 550px;
   height: 564px;
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   border-radius: 20px;
-  background: #B6E0FF;
+  background: #b6e0ff;
   animation-duration: 1s;
   animation-name: log;
   animation-fill-mode: forwards;
 }
-#por{
+#por {
   width: 120px;
   height: 120px;
   flex-shrink: 0;
-  fill: #FFF;
+  fill: #fff;
 }
-#por > img{
+#por > img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
 }
-#por{
-  position: absolute; 
+#por {
+  position: absolute;
   left: 20px;
   top: 70px;
   width: 120px;
   height: 120px;
   flex-shrink: 0;
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 50%;
   animation-name: porani;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
 
-
 .Button_home {
   cursor: pointer;
-  position: absolute; 
+  position: absolute;
   bottom: 80px;
   right: 55px;
   width: 100px;
@@ -58,28 +57,43 @@
   border-radius: 100px;
   border: none;
   background: #000;
-  color: #FFF;
-  color: #FFF;
+  color: #fff;
+  color: #fff;
   font-family: BM Jua;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: 25px; 
+  line-height: 25px;
   letter-spacing: 0.1px;
   animation-name: Buttonani;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-  
 }
-.write_name::placeholder{
-  color: #FFF;
+.write_name::placeholder {
+  color: #fff;
   text-indent: 5px;
-  
 }
-p, a, h1, h2, h3, h4, h5, h6, ul, li, tr, td, input, select, textarea, button, figure, blockquote{
-transform: skew(-0.1deg);
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+tr,
+td,
+input,
+select,
+textarea,
+button,
+figure,
+blockquote {
+  transform: skew(-0.1deg);
 }
-.write_name{
+.write_name {
   position: relative;
   top: 50px;
   text-align: center;
@@ -87,12 +101,12 @@ transform: skew(-0.1deg);
   height: 60px;
   border-radius: 20px;
   background: #000;
-  color: #FFF;
+  color: #fff;
   font-family: BM Jua;
   font-size: 25px;
   font-style: normal;
   font-weight: 400;
-  line-height: 25px; 
+  line-height: 25px;
   letter-spacing: 0.1px;
   animation-name: nameani;
   animation-duration: 2s;
@@ -107,19 +121,19 @@ transform: skew(-0.1deg);
   animation-name: loginWriteAni;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-  opacity: 0; 
+  opacity: 0;
 }
-#login_write > p{
-  line-height : 30px;
+#login_write > p {
+  line-height: 30px;
   color: #000;
   font-family: Pretendard;
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
-  
+
   letter-spacing: 0.1px;
 }
-#por_form{
+#por_form {
   /* position: absolute; */
   top: 280px;
   left: 240px;
@@ -131,7 +145,7 @@ transform: skew(-0.1deg);
   width: 100px;
   height: 30px;
   background: #fff;
-  border: 1px solid rgb(77,77,77);
+  border: 1px solid rgb(77, 77, 77);
   border-radius: 10px;
   font-weight: 500;
   cursor: pointer;
@@ -141,7 +155,7 @@ transform: skew(-0.1deg);
   animation-name: fileani;
   animation-duration: 1s;
   &:hover {
-    background: rgb(77,77,77);
+    background: rgb(77, 77, 77);
     color: #fff;
   }
 }
@@ -151,45 +165,81 @@ transform: skew(-0.1deg);
 }
 
 @keyframes loginWriteAni {
-  0% {opacity: 0;}
-  50% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-@keyframes nameani{
-  0%{}
-  80%{width: 470px;}
-  100%{ width: 470px;}
+@keyframes nameani {
+  0% {
+  }
+  80% {
+    width: 470px;
+  }
+  100% {
+    width: 470px;
+  }
 }
-@keyframes Buttonani{
-  0% {opacity: 0;}
-  50%{opacity: 0;}
-  70%{opacity: 0;}
-  100% {opacity: 1;
+@keyframes Buttonani {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
     right: 50px;
     top: 450px;
-    font-size:30px;
-    width: 150px;}
+    font-size: 30px;
+    width: 150px;
+  }
 }
-@keyframes porani{
-0% {opacity: 0;}
-50%{opacity: 0;}
-100% {opacity: 1;}
+@keyframes porani {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes loginWriteAni {
-  0% {opacity: 0;}
-  50%{opacity: 0;}
-  70%{opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-@keyframes fileani{
-  0% {opacity: 0;}
-  50%{opacity: 0;}
-  70%{opacity: 0;}
-  100% {opacity: 1;}
+@keyframes fileani {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
- 
-
-
-
-

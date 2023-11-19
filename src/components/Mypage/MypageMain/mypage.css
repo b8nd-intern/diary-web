@@ -8,8 +8,14 @@
 }
 .mypage_main{
     width: 1460px;
-    height: 900px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
 }
+
 
 .footer{
     position: absolute;
@@ -22,8 +28,10 @@
 }
 .main{
     position: absolute;
-    width: 100%;
-    height: calc(100vh - 120px);
+    width: 500px;
+    height: 420px;
+    top: 0;
+    left: 0;
 }
 .profile{
     width: 700px;
@@ -33,22 +41,22 @@
     font-size: 40px;
     font-style: normal;
     font-weight: 700;
-    line-height: 20px; /* 50% */
+    line-height: 20px; 
     letter-spacing: 0.1px;
 }
 #profile_name{
-    position: relative;
+    position: absolute;
     font-size: 40px;
     left: 67px;
-    top: 102px;
+    top: 100px;
 }
 #UserName{
     position: absolute;
     left: 300px;
-    top: 270px;
+    top: 250px;
 }
 .profile_img{
-    position: relative;
+    position: absolute;
     top: 172px;
     left: 67px;
     width: 150px;
@@ -66,15 +74,15 @@
     background: #0083EC;
     width: 30px;
     height: 30px;
-    left: 90px;
+    left: 110px;
     top: 120px;
     flex-shrink: 0;
 }
 #img{
-    position: relative;
+    position: absolute;
     cursor: pointer;
-    left: 113px;
-    top: 113px;
+    left: 120px;
+    top: 127px;
     z-index: 3;
 }
 .img_upload{
