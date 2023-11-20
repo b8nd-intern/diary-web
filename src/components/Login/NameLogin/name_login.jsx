@@ -40,7 +40,7 @@ export default function NameLogin() {
       };
     });
   };
-  const Starthandclick = async () => {
+  const CamelCase = async () => {
     if (name === "" || !imageSrc) {
       Toast.fire({
         icon: "error",
@@ -90,7 +90,7 @@ export default function NameLogin() {
   return (
     <div className="Name_Login">
       <div className="group2">
-        <div id="por">{imageSrc && <img src={imageSrc} />}</div>
+      <> {imageSrc && ( <div id="por"> <img src={imageSrc} /> </div> )} </>
         <form action="" id="por_form">
           <label htmlFor="file">
             <div className="btn-upload">프로필 설정</div>
@@ -113,7 +113,7 @@ export default function NameLogin() {
             value="시작하기"
             className="Button_home"
             onClick={() => {
-              Starthandclick();
+              CamelCase();
             }}
             disabled={startDisabled}
           />
