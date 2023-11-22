@@ -2,11 +2,26 @@ import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "./calender.css";
 import moment from "moment";
+import axios from "axios";
 
 const Calender = () => {
   // 필요 없는 버튼 삭제
   const [today, setDate] = useState(new Date());
   const formattedDate = `${today.getFullYear()}년 ${today.getMonth() + 1}월`;
+  const [cnt, setCnt] = useState(0);
+
+  useEffect(() => {
+    axios.get('https://15.164.163.4/post-cnt')
+      .then((response) => {
+        const { status, data } = response;
+        if (status === 200) {
+          setCnt(data.cnt);
+        }
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
+  }, []);
 
   useEffect(() => {
     const navigation = document.querySelector(
@@ -51,6 +66,15 @@ const Calender = () => {
     setDate(nextMonth);
     setShowHighlightedDate(false);
   };
+  
+  useEffect(() => {
+    const todayButton = document.querySelector(
+      ".react-calendar__month-view__days button.react-calendar__tile--now"
+    );
+    if (todayButton && cnt === 1) {
+      todayButton.style.backgroundColor = '#E3F2FD';
+    }
+  }, [cnt]);
 
   return (
     <div className="mainBack">

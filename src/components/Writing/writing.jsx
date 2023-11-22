@@ -1,38 +1,76 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Footer from "../footer/footer";
-import "./writing.css";
-import Writingicon from "../../noteIcon/writingicon";
 import Calendar from "../Calendar/calender";
-import smile from "../../assets/img/Emotion (1).png";
 import Swal from "sweetalert2";
+import "./writing.css";
+import smile from "../../assets/img/Emotion (1).png";
+import wacky from "../../assets/img/Emotion (2).png";
+import woo from "../../assets/img/Emotion (3).png";
+import stress from "../../assets/img/Emotion (4).png";
+import angry from "../../assets/img/Emotion (5).png";
 
 const Openwriting = () => {
-  const [selectedImage, setSelectedImage] = useState(smile);
-  const [selectedColor, setSelectedColor] = useState("");
-  const [noteText, setNoteText] = useState("");
-  const [isPublicSelected, setIsPublicSelected] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(
+    localStorage.getItem("selectedImage") || smile
+  );
+  const [selectedImageName, setSelectedImageName] = useState(
+    localStorage.getItem("selectedImageName") || "smile"
+  );
+  const [selectedColor, setSelectedColor] = useState(
+    localStorage.getItem("selectedColor") || ""
+  );
+  const [noteText, setNoteText] = useState(
+    localStorage.getItem("noteText") || ""
+  );
+  const [isPublicSelected, setIsPublicSelected] = useState(
+    localStorage.getItem("isPublicSelected") === "true" || false
+  );
   const colorSelect = ["#e3f2fd", "#b6e0ff", "#93c2e4", "#feef9f"];
+  const EmotionImg = [
+    { name: "smile", url: smile },
+    { name: "wacky", url: wacky },
+    { name: "woo", url: woo },
+    { name: "stress", url: stress },
+    { name: "angry", url: angry },
+  ];
 
   const handleUploadClick = () => {
-    //서버에 보내기
     if (noteText.trim() !== "") {
       axios
-        .post("https://15.164.163.4/post/create", {
-          content: noteText,
-          color: selectedColor,
-          emoji: selectedImage,
-          isSecret: !isPublicSelected,
-        })
+        .post(
+          "http://15.164.163.4/post/create",
+          {
+            content: noteText,
+            color: selectedColor,
+            emoji: selectedImageName,
+            isSecret: isPublicSelected,
+          },
+          {
+            headers: {
+              Authorization:
+                "Bearer eyJKV1QiOiJBQ0NFU1MiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiNGQxMGQ1Ni01ZWI0LTRkZmMtOGQzNS1jZjk2MGE5NzExOWIiLCJBdXRob3JpemF0aW9uIjoiVVNFUiIsImlhdCI6MTcwMDU0MzkyMiwiZXhwIjo4ODEwMDU0MzkyMn0.hgWZANzbq1NM4JDkA3zVlychlVkoCPX5_s4HADrVR9b-tvqPw-HRjUsO_56hqiu5105DTGiZxAwmh2a4hU3ADQ",
+              "Content-Type": "application/json",
+            },
+            validateStatus: () => true,
+          }
+        )
         .then((response) => {
-          if (response.status === 200) {
+          if (response.status === 201)
             Swal.fire({
               icon: "success",
               title: "업로드가 성공적으로 완료되었습니다!",
             });
+          else {
+            Swal.fire({
+              icon: "warning",
+              title: "업로드에 실패 했습니다.",
+              text: response.data.message,
+            });
           }
         })
         .catch((error) => {
+          console.error(error);
           Swal.fire({
             icon: "error",
             title: "업로드를 실패 했습니다.",
@@ -47,34 +85,24 @@ const Openwriting = () => {
       });
     }
   };
-  //공개와 비공개,색상,이미지 선택
-  useEffect(() => {
-    const savedNoteText = localStorage.getItem("noteText");
-    const savedSelectedColor = localStorage.getItem("selectedColor");
-    const savedImage = localStorage.getItem("selectedImage");
-    const savedIsPublicSelected =
-      localStorage.getItem("isPublicSelected") === "true";
-
-    if (savedNoteText) {
-      setNoteText(savedNoteText);
-    }
-    if (savedSelectedColor) {
-      setSelectedColor(savedSelectedColor);
-    }
-    if (savedImage) {
-      setSelectedImage(savedImage);
-    }
-    setIsPublicSelected(savedIsPublicSelected);
-  }, []);
 
   useEffect(() => {
+    localStorage.setItem("selectedImageName", selectedImageName);
+    localStorage.setItem("selectedImage", selectedImage);
     localStorage.setItem("noteText", noteText);
     localStorage.setItem("selectedColor", selectedColor);
     localStorage.setItem("isPublicSelected", isPublicSelected.toString());
-  }, [noteText, selectedImage, selectedColor, isPublicSelected]);
+  }, [
+    selectedImageName,
+    selectedImage,
+    noteText,
+    selectedColor,
+    isPublicSelected,
+  ]);
 
-  const handleImageClick = (imageUrl) => {
-    setSelectedImage(imageUrl);
+  const handleImageClick = (image) => {
+    setSelectedImage(image.url);
+    setSelectedImageName(image.name);
   };
 
   const handleColorButtonClick = (color) => {
@@ -111,7 +139,13 @@ const Openwriting = () => {
               </span>
             </div>
             <div className="handleImageClick">
-              <Writingicon onImageClick={handleImageClick} />
+              <div className="writingIcon">
+                {EmotionImg.map((image, index) => (
+                  <button key={index} onClick={() => handleImageClick(image)}>
+                    <img src={image.url} alt={`writingIcon${index + 1}`} />
+                  </button>
+                ))}
+              </div>
             </div>
             <div className="openColorChange">
               {colorSelect.map((color) => (

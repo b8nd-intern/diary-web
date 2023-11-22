@@ -188,3 +188,26 @@
 .openNotepadSubmit button:hover {
   transform: scale(1.1);
 }
+
+/* 이미지 고르기 */
+.writingIcon {
+  width: 300px;
+  
+  margin-top: 6.7rem;
+  margin-left:3.5px;
+
+  position: absolute;
+}
+
+.writingIcon button {
+  cursor: pointer;
+
+  border-radius: 100%;
+  border: none;
+
+  background-color: #f8f8f8;
+}
+
+.writingIcon img {
+  width: 40px;
+}
