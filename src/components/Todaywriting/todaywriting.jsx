@@ -6,6 +6,7 @@ const Todaywriting = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    const today = new Date();
     const year = today.getFullYear();
     const month = today.getMonth() + 1;
     const userId = "유저아이디 알아서 구해서 넣으셈 (UUID 포맷)"

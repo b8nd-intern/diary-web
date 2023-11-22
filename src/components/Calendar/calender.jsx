@@ -11,7 +11,7 @@ const Calender = () => {
   const [cnt, setCnt] = useState(0);
 
   useEffect(() => {
-    axios.get('https://15.164.163.4/post-cnt')
+    axios.get('http://15.164.163.4/post-cnt')
       .then((response) => {
         const { status, data } = response;
         if (status === 200) {
