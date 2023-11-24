@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./name_login.css";
+import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
@@ -22,7 +23,8 @@ export default function NameLogin() {
   const [name, setName] = useState("");
   const [file, setFile] = useState();
   const [startDisabled, setStartDisabled] = useState(true);
-  // const [startDisabled, setStartDisabled] = useState(true);
+  const [cookies, setCookie, removeCookie] = useCookies();
+  const accessToken = cookies.accessToken;
 
   const onUpload = (e) => {
     const file = e.target.files[0];
@@ -34,9 +36,6 @@ export default function NameLogin() {
         imageSrc.append("images", file);
         setImageSrc(reader.result || null);
         resolve();
-        for (let value of imageSrc.values()) {
-          console.log(value);
-        }
       };
     });
   };
@@ -48,16 +47,28 @@ export default function NameLogin() {
       });
     } else {
       try {
-        const ReturnUserData = {
-          name: name,
-          picture: file,
+        const formData = new FormData();
+        const data = {
+          name,
         };
-        const response = await axios.patch(SEREVERURL, ReturnUserData, {
-          withCredentials: true,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        formData.append(
+          "settingData",
+          new Blob([JSON.stringify(data)], { type: "application/json" })
+        );
+        
+        formData.append("images", file);
+
+        const response = await axios.patch(
+          `${SEREVERURL}/user/setting`,
+          formData,
+          {
+            withCredentials: true,
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
         if (response.status === 200) {
           Toast.fire({
             icon: "success",
@@ -90,7 +101,15 @@ export default function NameLogin() {
   return (
     <div className="Name_Login">
       <div className="group2">
-      <> {imageSrc && ( <div id="por"> <img src={imageSrc} /> </div> )} </>
+        <>
+          {" "}
+          {imageSrc && (
+            <div id="por">
+              {" "}
+              <img src={imageSrc} />{" "}
+            </div>
+          )}{" "}
+        </>
         <form action="" id="por_form">
           <label htmlFor="file">
             <div className="btn-upload">프로필 설정</div>
@@ -112,7 +131,8 @@ export default function NameLogin() {
             type="submit"
             value="시작하기"
             className="Button_home"
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               CamelCase();
             }}
             disabled={startDisabled}

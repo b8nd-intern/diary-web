@@ -22,10 +22,12 @@
     background: #B6E0FF;
     position: absolute;
   }
-  .group > h1 {
+  .group > h1 >img{
     text-align: center;
     font-size: 5vw;
-}
+    width: 300px;
+    height: 300px;
+  }
   .googleLog>.Button_link > input{
     cursor: pointer;
     width: 30%;
