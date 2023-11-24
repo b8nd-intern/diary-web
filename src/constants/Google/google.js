@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import { hasGrantedAllScopesGoogle } from "@react-oauth/google";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import Swal from "sweetalert2";
-import { refreshAccessToken, isTokenExpired } from "../../lib/Axios/axiosrfresh";
+import { refreshAccessToken, isTokenExpired } from "../../lib/axiosrfresh";
+import customAxios from "../../lib/CustomAxios";
+import CONFIG from "../../config.json"
 
 const GOOGLELOGIN = () => {
   const clientId = process.env.REACT_APP_CLIENT_ID;
   const SEREVERURL = process.env.REACT_APP_SEREVER_URL;
   const navigate = useNavigate();
-  const [cookies, setCookie, removeCookie] = useCookies();
+  const [cookies, setCookie] = useCookies();
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
@@ -29,8 +30,8 @@ const GOOGLELOGIN = () => {
         id_token: `${response.credential}`,
       };
 
-      response = await axios.post(`${SEREVERURL}/auth/login/google`, null, {
-        headers: headers,
+      response = await axios.post(`${CONFIG.serverUrl}/auth/login/google`, null, {
+        headers,
       });
 
       if (response.data.data.isFirst == false) {
@@ -41,8 +42,8 @@ const GOOGLELOGIN = () => {
           if (isTokenExpired(newAccessToken)) {
             newAccessToken = await refreshAccessToken(cookies.refreshToken);
 
-            response = await axios.post(
-              `${SEREVERURL}/auth/login/google`,
+            response = await customAxios.post(
+              `${CONFIG.serverUrl}/auth/login/google`,
               null,
               {
                 headers: {

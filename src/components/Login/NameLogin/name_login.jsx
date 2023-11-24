@@ -39,7 +39,7 @@ export default function NameLogin() {
       };
     });
   };
-  const CamelCase = async () => {
+  const StarthandClick = async () => {
     if (name === "" || !imageSrc) {
       Toast.fire({
         icon: "error",
@@ -55,7 +55,7 @@ export default function NameLogin() {
           "settingData",
           new Blob([JSON.stringify(data)], { type: "application/json" })
         );
-        
+
         formData.append("images", file);
 
         const response = await axios.patch(
@@ -133,7 +133,7 @@ export default function NameLogin() {
             className="Button_home"
             onClick={(e) => {
               e.preventDefault();
-              CamelCase();
+              StarthandClick();
             }}
             disabled={startDisabled}
           />
