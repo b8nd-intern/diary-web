@@ -1,22 +1,68 @@
 import React, { useState } from "react";
 import "./name_login.css";
-import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import { Link, useNavigate } from "react-router-dom";
+
+import axios from "axios";
+import { showToast } from "../../../constants/Swal/Toast";
 
 export default function NameLogin() {
-  const [imageSrc, setImageSrc] = useState(null);
+  const SEREVERURL = process.env.REACT_APP_SEREVER_URL;
+  const navigate = useNavigate();
+  const [imageSrc, setImageSrc] = useState(new FormData());
   const [name, setName] = useState("");
-  const [startDisabled, StartDisabled] = useState(true);
+  const [file, setFile] = useState();
+  const [startDisabled, setStartDisabled] = useState(true);
+  const [cookies, setCookie, removeCookie] = useCookies();
+  const accessToken = cookies.accessToken;
 
   const onUpload = (e) => {
     const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-
+    setFile(file);
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    return new Promise((resolve) => {
       reader.onload = () => {
+        imageSrc.append("images", file);
         setImageSrc(reader.result || null);
-        checkStartEnabled();
+        resolve();
       };
+    });
+  };
+  const startHandClick = async () => {
+    if (name === "" || !imageSrc) {
+      showToast("error", "이름과 프로필 사진을 모두 입력해주세요.");
+    } else {
+      try {
+        const formData = new FormData();
+        const data = {
+          name,
+        };
+        formData.append(
+          "settingData",
+          new Blob([JSON.stringify(data)], { type: "application/json" })
+        );
+
+        formData.append("images", file);
+
+        const response = await axios.patch(
+          `${SEREVERURL}/user/setting`,
+          formData,
+          {
+            withCredentials: true,
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
+        if (response.status === 200) {
+          showToast("success", "로그인 성공");
+          navigate("/mainhome");
+        }
+      } catch (error) {
+        showToast("error", "서버 연결 실패");
+      }
     }
   };
 
@@ -27,35 +73,24 @@ export default function NameLogin() {
   };
 
   const checkStartEnabled = () => {
-    if (name) { //이름이 써져있다면
-      StartDisabled(false);
-    }
-    else if(imageSrc){ //프로필이 설정이 되었다면
-        StartDisabled(false);
-    }
-     else {
-      StartDisabled(true);
+    if (name && imageSrc) {
+      setStartDisabled(false);
+    } else {
+      setStartDisabled(true);
     }
   };
-  const Starthandclick=()=>{
-    if (name && imageSrc ===" "){
-        alert("프로필과 이름을 입력해주세요")
-    }
-    else if(name === " "){
-        alert("이름을 입력해주세요")
-    }
-    else{
-        // alert("프로필을 입력해주세요")
-    }
-  }
-  
   return (
     <div className="Name_Login">
-    
       <div className="group2">
-        <div id="por">
-          {imageSrc && <img src={imageSrc} alt="Preview" />}
-        </div>
+        <>
+          {" "}
+          {imageSrc && (
+            <div id="por">
+              {" "}
+              <img src={imageSrc} />{" "}
+            </div>
+          )}{" "}
+        </>
         <form action="" id="por_form">
           <label htmlFor="file">
             <div className="btn-upload">프로필 설정</div>
@@ -63,7 +98,7 @@ export default function NameLogin() {
           <input type="file" name="file" id="file" onChange={onUpload} />
         </form>
         <div id="login_write">
-          안녕하세요 함께 오늘 하루를 작성해볼까요?
+          <p>안녕하세요 함께 오늘 하루를 작성해볼까요?</p>
         </div>
         <form className="googleLog">
           <input
@@ -73,15 +108,18 @@ export default function NameLogin() {
             value={name}
             onChange={onNameChange}
           />
-          <Link to="/mainhome" className="Button_home">
-            <input type="submit"
-              value="시작하기"
-             onClick={Starthandclick} 
-             maxLength={5}
-             disabled={startDisabled}/>
-          </Link>
+          <input
+            type="submit"
+            value="시작하기"
+            className="Button_home"
+            onClick={(e) => {
+              e.preventDefault();
+              startHandClick();
+            }}
+            disabled={startDisabled}
+          />
         </form>
       </div>
-    </div>  
+    </div>
   );
 }

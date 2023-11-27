@@ -1,9 +1,15 @@
 .Post-written{
     position: relative;
     width: 500px;
+    height: 600px;
+    top: 0;
+}
+.mypagepost{
+    position: absolute;
+    width:  500px;
     height: 700px;
-    left: 100vh;
-    bottom: 40rem;
+    right: 150px;
+    top: 0;
 }
 #Post-written-name{
     position: relative;
@@ -55,9 +61,10 @@
     letter-spacing: 0.1px;
     }
 .sheets{
-    position: relative;
-    top: 8px;
-    left: 11px;
+    position: absolute;
+    bottom: 5px;
+    z-index: 3;
+    left: 15px;
     color: #4B5568;
     font-family: Pretendard;
     font-size: 12px;
