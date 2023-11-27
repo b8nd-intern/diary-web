@@ -8,19 +8,36 @@ const Calender = () => {
   // 필요 없는 버튼 삭제
   const [today, setDate] = useState(new Date());
   const formattedDate = `${today.getFullYear()}년 ${today.getMonth() + 1}월`;
-  const [cnt, setCnt] = useState(0);
 
   useEffect(() => {
-    axios.get('http://15.164.163.4/post-cnt')
-      .then((response) => {
-        const { status, data } = response;
-        if (status === 200) {
-          setCnt(data.cnt);
-        }
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-      });
+    const month = today.getMonth() + 1;
+    axios.post("http://15.164.163.4/auth/login/test").then((resp) => {
+      console.log(resp.data.accessToken);
+      axios
+        .get(`http://15.164.163.4/records/month/${month}`, {
+          headers: {
+            Authorization: "Bearer " + resp.data.accessToken,
+          },
+          validateStatus: () => true,
+        })
+        .then((response) => {
+          console.log(response.data);
+          const data = response.data.data;
+          data.forEach((item) => {
+            if (item.isDone) {
+              const dateButton = document.querySelector(
+                `button[data-date="${item.date}"]`
+              );
+              if (dateButton) {
+                dateButton.style.backgroundColor = "#E3F2FD";
+              }
+            }
+          });
+        })
+        .catch((error) => {
+          console.error("There was an error!", error);
+        });
+    });
   }, []);
 
   useEffect(() => {
@@ -44,17 +61,22 @@ const Calender = () => {
   const [showHighlightedDate, setShowHighlightedDate] = useState(true);
 
   const tileContent = ({ date, view }) => {
-    if (view === "month" && date.getDate() === today.getDate()) {
-      if (date.getMonth() !== today.getMonth()) {
-        return null;
-      }                  
-      return showHighlightedDate ? (
-        <div className="highlighted-date"></div>
-      ) : null;
+    if (view === "month") {
+      const currentDate = new Date();
+      const isCurrentMonth =
+        date.getFullYear() === today.getFullYear() &&
+        date.getMonth() === today.getMonth();
+
+      if (isCurrentMonth && date.getDate() === currentDate.getDate()) {
+        return showHighlightedDate ? (
+          <div className="highlighted-date"></div>
+        ) : null;
+      }
+      return null;
     }
     return null;
   };
-// 다음달로 넘어가는 버튼 클릭 시 화면 전환
+  // 다음달로 넘어가는 버튼 클릭 시 화면 전환
   const handlePrevButtonClick = () => {
     const prevMonth = new Date(today.getFullYear(), today.getMonth() - 1, 1);
     setDate(prevMonth);
@@ -66,15 +88,15 @@ const Calender = () => {
     setDate(nextMonth);
     setShowHighlightedDate(false);
   };
-  
+
   useEffect(() => {
-    const todayButton = document.querySelector(
-      ".react-calendar__month-view__days button.react-calendar__tile--now"
-    );
-    if (todayButton && cnt === 1) {
-      todayButton.style.backgroundColor = '#E3F2FD';
+    const currentMonth = new Date().getMonth();
+    if (today.getMonth() === currentMonth) {
+      setShowHighlightedDate(true); // 현재 달이 뷰로 보여질 때 강조 표시 보여주기
+    } else {
+      setShowHighlightedDate(false); // 다른 달이 뷰로 보여질 때 강조 표시 숨기기
     }
-  }, [cnt]);
+  }, [today]);
 
   return (
     <div className="mainBack">

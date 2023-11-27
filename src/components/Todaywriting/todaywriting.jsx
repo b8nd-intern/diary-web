@@ -9,8 +9,7 @@ const Todaywriting = () => {
     const today = new Date();
     const year = today.getFullYear();
     const month = today.getMonth() + 1;
-    const userId = "유저아이디 알아서 구해서 넣으셈 (UUID 포맷)"
-
+    const userId = "유저아이디(UUID 포맷)"
     //서버에서 받아오는 부분
     axios
       .get(`http://15.164.163.4/post/monthForEvery/${year}/${month}/${userId}`, {

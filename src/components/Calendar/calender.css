@@ -56,12 +56,13 @@
   border: none;
 }
 
+.react-calendar__navigation {
+  margin-left: 18rem;
+}
+
 .react-calendar__navigation__prev-button {
   font-size: x-large;
   background-color: rgb(255, 255, 255);
-
-  margin-left: 9.2rem;
-  margin-right: 9.2rem;
 
   cursor: pointer;
 }
