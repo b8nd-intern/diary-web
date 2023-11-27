@@ -2,22 +2,12 @@ import React, { useState } from "react";
 import "./name_login.css";
 import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+
 import axios from "axios";
+import { showToast } from "../../../constants/Swal/Toast";
 
 export default function NameLogin() {
   const SEREVERURL = process.env.REACT_APP_SEREVER_URL;
-  const Toast = Swal.mixin({
-    toast: true,
-    position: "top-end",
-    showConfirmButton: false,
-    timer: 2000,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-      toast.addEventListener("mouseenter", Swal.stopTimer);
-      toast.addEventListener("mouseleave", Swal.resumeTimer);
-    },
-  });
   const navigate = useNavigate();
   const [imageSrc, setImageSrc] = useState(new FormData());
   const [name, setName] = useState("");
@@ -39,12 +29,9 @@ export default function NameLogin() {
       };
     });
   };
-  const StarthandClick = async () => {
+  const startHandClick = async () => {
     if (name === "" || !imageSrc) {
-      Toast.fire({
-        icon: "error",
-        title: "이름과 프로필 사진을 모두 입력해주세요.",
-      });
+      showToast("error", "이름과 프로필 사진을 모두 입력해주세요.");
     } else {
       try {
         const formData = new FormData();
@@ -70,17 +57,11 @@ export default function NameLogin() {
           }
         );
         if (response.status === 200) {
-          Toast.fire({
-            icon: "success",
-            title: "로그인 성공",
-          });
+          showToast("success", "로그인 성공");
           navigate("/mainhome");
         }
       } catch (error) {
-        Toast.fire({
-          icon: "error",
-          title: "서버 연결 실패",
-        });
+        showToast("error", "서버 연결 실패");
       }
     }
   };
@@ -133,7 +114,7 @@ export default function NameLogin() {
             className="Button_home"
             onClick={(e) => {
               e.preventDefault();
-              StarthandClick();
+              startHandClick();
             }}
             disabled={startDisabled}
           />

@@ -3,20 +3,17 @@ import Cookies from "js-cookie";
 import CONFIG from "../config.json";
 
 export const customAxios = axios.create({
-  baseURL: `${CONFIG.serverUrl}`, 
+  baseURL: `${CONFIG.serverUrl}`,
   headers: {
     Authorization: `Bearer ${Cookies.get("accessToken")}`,
   },
 });
 
 const errorInterceptor = async (error) => {
+  const accessToken = Cookies.get("accessToken");
   const refreshToken = Cookies.get("refreshToken");
 
-  if (
-    error.response &&
-    error.response.status === 401 &&
-    !error.config._isRetry
-  ) {
+  if (accessToken && refreshToken && error.response && error.response.status === 401) {
     const originalRequest = error.config;
     originalRequest._isRetry = true;
 

@@ -1,31 +1,52 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../../footer/footer";
-import Post from "../../Mypage/Post/mypagepost"
+import Post from "../../Mypage/Post/mypagepost";
 import Grass from "../Grass/mypagegrass";
-import icon from "../../../assets/img/icon.png"
-import { useState,useRef,setFile} from 'react';
-
+import icon from "../../../assets/img/icon.png";
+import axios from "axios";  
+import CONFIG from "../../../config.json"
 
 export default function MyPage() {
+  const [profileImage, setProfileImage] = useState(null);
+
+  useEffect(() => {
+    
+    const fetchProfileImage = async () => {
+      try {
+        const response = await axios.get(`${CONFIG.serverUrl}/api/user/profile/image`);  
+        setProfileImage(response.data.profileImage); 
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error", error);
+      
+      }
+    };
+
+    fetchProfileImage();
+  }, []);  
+
   return (
     <div className="mypage">
       <div className="mypage_main">
-      <div className="main">
-        <div className="profile">
-          <h1 id="profile_name">프로필</h1>
-          <span id="UserName"><h3>이해준</h3></span>
-          <div className="profile_img">
-            <label htmlFor="img_upload">
-              <img id="img" src={icon} alt="" />
-              <input type="button" id="profile_correction"></input>
-            </label>
-            <input type="file" id="img_upload" style={{ display: "none" }} />
+        <div className="main">
+          <div className="profile">
+            <h1 id="profile_name">프로필</h1>
+            <span id="UserName">
+              <h3>이해준</h3>
+            </span>
+            <div className="profile_img">
+              <img src={profileImage} id="traimg"/>
+              {/* <label htmlFor="img_upload"> */}
+                <img id="img" src={icon} alt="Upload" />
+                <input type="button" id="profile_correction" />
+              {/* </label> */}
+              <input type="file" id="img_upload" style={{ display: "none" }} />
+            </div>
           </div>
         </div>
-      </div>
-       <Grass /> 
-      <Post />
-      <Footer /> 
+        <Grass />
+        <Post />
+        <Footer />
       </div>
     </div>
   );
