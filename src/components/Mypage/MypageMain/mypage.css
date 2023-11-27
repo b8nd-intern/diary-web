@@ -1,3 +1,4 @@
+
 .mypage{
     width: 100vw;
     height: 100vh;
@@ -25,6 +26,8 @@
     height: 120px;
     display: flex;
   justify-content: center;
+
+  position: relative;
 }
 .main{
     position: absolute;
@@ -96,10 +99,10 @@
 .img_upload{
     position: absolute;
 }
-.writen{
-    position: absolute;
-    width: 500px;
-    height: 600px;
-    background-color: #0083EC;
-    left: 800px;
+.writen {
+  position: absolute;
+  width: 500px;
+  height: 600px;
+  background-color: #0083ec;
+  left: 800px;
 }
