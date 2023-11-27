@@ -12,7 +12,6 @@ const Calender = () => {
   useEffect(() => {
     const month = today.getMonth() + 1;
     axios.post("http://15.164.163.4/auth/login/test").then((resp) => {
-      console.log(resp.data.accessToken);
       axios
         .get(`http://15.164.163.4/records/month/${month}`, {
           headers: {
@@ -21,7 +20,6 @@ const Calender = () => {
           validateStatus: () => true,
         })
         .then((response) => {
-          console.log(response.data);
           const data = response.data.data;
           data.forEach((item) => {
             if (item.isDone) {
