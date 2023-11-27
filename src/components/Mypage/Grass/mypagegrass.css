@@ -1,9 +1,9 @@
 .content{
     position: absolute;
     left: 120px;
+    top: 420px;
     width: 600px;
     height: 320px;
-    
 }
 .content ::-webkit-scrollbar{
     display: none;
@@ -13,15 +13,13 @@
     overflow-x: scroll;
     /* overflow-y: hidden; */
     white-space: nowrap;
-    top: 400px;
+    bottom: 0;
     width: 100%;
     height: 320px;
     /* background-color: whitesmoke; */
 }
 .oneweek{
     position: absolute;
-    top: 400px;
-    left: -40px;
     width: 50px;
     height: 270px;
     color: #727272;
@@ -40,7 +38,7 @@
 .grassBox>.month{
     position: absolute;
     left: 10px;
-    bottom: 600px;
+    top: 0;
     width: 100vh;
     height: 25px;
     font-family: Pretendard;
@@ -57,7 +55,8 @@
 }
 .Grass_day{
     position: absolute;
-    top: 5px;
+    top: 40px;
+    left: 40px;
     width: 200px;
     height: 270px;
     
@@ -65,7 +64,6 @@
 }
 .grassBox_box{
     position: absolute;
-    top: 40px;
     width: 1500px;
     height: 270px;
     

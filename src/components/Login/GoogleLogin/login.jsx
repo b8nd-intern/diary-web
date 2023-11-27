@@ -1,20 +1,15 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
+import GOOGLE from "../../../constants/Google/google";
+import LOGO from "../../../assets/img/BN.png";
 
 export default function Login() {
-
-  const navigate = useNavigate();
   return (
     <div className="login">
       <div className="group">
-        <h1>LOGO</h1>
-        <form className="googleLog">
-          <div onClick={() => navigate("/dfdf")}>dlehdgkrl</div>
-        
-        {/* <Link to="/name_login" className="Button_link"><input type="submit" value=""></input> </Link>  */}
-        </form>
-        
+        <h1>
+          <img src={LOGO} />
+        </h1>
+        <GOOGLE className="GOOGLE"></GOOGLE>
       </div>
     </div>
   );
