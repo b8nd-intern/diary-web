@@ -48,6 +48,9 @@ export default function MyPage() {
         <Post />
         <Footer />
       </div>
+      <Grass />
+      <Post />
+      <Footer /> 
     </div>
   );
 }
