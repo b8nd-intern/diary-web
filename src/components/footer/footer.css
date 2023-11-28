@@ -35,10 +35,9 @@
     transform: scale(1.1);
 }
 
-.mypage:hover {
+.enterMypage:hover {
     transform: scale(1.1);
 }
-
 
 .mini {
     width:60px;
