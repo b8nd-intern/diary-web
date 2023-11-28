@@ -49,7 +49,7 @@ const Footer = () => {
           </svg>
         </Link>
       </span>
-      <span className="mypage mini bottomIcon">
+      <span className="enterMypage mini bottomIcon">
         <Link to="/mypage">
           <img src={ind} alt="MyPageIcon" />
         </Link>
