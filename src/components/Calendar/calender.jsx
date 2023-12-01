@@ -3,40 +3,42 @@ import Calendar from "react-calendar";
 import "./calender.css";
 import moment from "moment";
 import axios from "axios";
+import CONFIG from "../../config.json";
+import Cookies from "js-cookie";
 
 const Calender = () => {
-  // 필요 없는 버튼 삭제
+  const accessToken = Cookies.get("accessToken");
   const [today, setDate] = useState(new Date());
   const formattedDate = `${today.getFullYear()}년 ${today.getMonth() + 1}월`;
 
-  useEffect(() => {
-    const month = today.getMonth() + 1;
-    axios.post("http://15.164.163.4/auth/login/test").then((resp) => {
-      axios
-        .get(`http://15.164.163.4/records/month/${month}`, {
-          headers: {
-            Authorization: "Bearer " + resp.data.accessToken,
-          },
-          validateStatus: () => true,
-        })
-        .then((response) => {
-          const data = response.data.data;
-          data.forEach((item) => {
-            if (item.isDone) {
-              const dateButton = document.querySelector(
-                `button[data-date="${item.date}"]`
-              );
-              if (dateButton) {
-                dateButton.style.backgroundColor = "#E3F2FD";
-              }
+useEffect(() => {
+  const month = today.getMonth() + 1;
+  axios
+    .get(`${CONFIG.serverUrl}/records/month/${month}`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      validateStatus: () => true,
+    })
+    .then((response) => {
+      const data = response.data; 
+      if (data) { 
+        data.forEach((item) => {
+          if (item.isDone) {
+            const dateButton = document.querySelector(
+              `button[data-date="${item.date}"]`
+            );
+            if (dateButton) {
+              dateButton.style.backgroundColor = "#E3F2FD";
             }
-          });
-        })
-        .catch((error) => {
-          console.error("There was an error!", error);
+          }
         });
+      }
+    })
+    .catch((error) => {
+      console.error("There was an error!", error);
     });
-  }, []);
+});
 
   useEffect(() => {
     const navigation = document.querySelector(
