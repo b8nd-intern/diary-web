@@ -9,6 +9,8 @@ import wacky from "../../assets/img/Emotion (2).png";
 import woo from "../../assets/img/Emotion (3).png";
 import stress from "../../assets/img/Emotion (4).png";
 import angry from "../../assets/img/Emotion (5).png";
+import CONFIG from "../../config.json";
+import Cookies from "js-cookie";
 
 const Openwriting = () => {
   const [selectedImage, setSelectedImage] = useState(
@@ -36,10 +38,11 @@ const Openwriting = () => {
   ];
 
   const handleUploadClick = () => {
+    const accessToken = Cookies.get("accessToken");
     if (noteText.trim() !== "") {
       axios
         .post(
-          "http://15.164.163.4/post/create",
+          `${CONFIG.serverUrl}/post/create`,
           {
             content: noteText,
             color: selectedColor,
@@ -48,8 +51,7 @@ const Openwriting = () => {
           },
           {
             headers: {
-              Authorization:
-                "Bearer eyJKV1QiOiJBQ0NFU1MiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiNGQxMGQ1Ni01ZWI0LTRkZmMtOGQzNS1jZjk2MGE5NzExOWIiLCJBdXRob3JpemF0aW9uIjoiVVNFUiIsImlhdCI6MTcwMDU0MzkyMiwiZXhwIjo4ODEwMDU0MzkyMn0.hgWZANzbq1NM4JDkA3zVlychlVkoCPX5_s4HADrVR9b-tvqPw-HRjUsO_56hqiu5105DTGiZxAwmh2a4hU3ADQ",
+              Authorization: `Bearer ${accessToken}`,
               "Content-Type": "application/json",
             },
             validateStatus: () => true,
@@ -65,7 +67,6 @@ const Openwriting = () => {
             Swal.fire({
               icon: "warning",
               title: "업로드에 실패 했습니다.",
-              text: response.data.message,
             });
           }
         })

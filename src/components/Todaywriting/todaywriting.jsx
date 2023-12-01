@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./todaywriting.css";
+import CONFIG from "../../config.json";
+import Cookies from 'js-cookie';
 
 const Todaywriting = () => {
+  const accessToken = Cookies.get("accessToken");
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -12,10 +15,10 @@ const Todaywriting = () => {
     const userId = "유저아이디(UUID 포맷)"
     //서버에서 받아오는 부분
     axios
-      .get(`http://15.164.163.4/post/monthForEvery/${year}/${month}/${userId}`, {
+      .get(`${CONFIG.serverUrl}/post/monthForEvery/${year}/${month}/${userId}`, {
         headers: {
           Authorization:
-            "Bearer eyJKV1QiOiJBQ0NFU1MiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiNGQxMGQ1Ni01ZWI0LTRkZmMtOGQzNS1jZjk2MGE5NzExOWIiLCJBdXRob3JpemF0aW9uIjoiVVNFUiIsImlhdCI6MTcwMDY0ODMwMSwiZXhwIjoxNzAwNjQ4MzMxfQ.JzvAVukzgxxndbq8u4Rr0FSXjJe8cUarFK7rR09G_UOCiuyP-4ThZeTjcAvdzbj3PBwvhZ8r_SUbKyV6l5-ghw",
+            `Bearer ${accessToken}`
         },
       })
       .then((response) => {
