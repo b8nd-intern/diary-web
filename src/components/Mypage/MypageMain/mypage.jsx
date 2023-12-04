@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import Footer from "../../footer/footer";
 import Post from "../../Mypage/Post/mypagepost";
 import Grass from "../Grass/mypagegrass";
-import icon from "../../../assets/img/icon.png";
-import axios from "axios";  
+import icon from "../../../assets/img/icon.png"; 
 import CONFIG from "../../../config.json";
+import Interceptor from "../../../lib/CustomAxios"
 import Profile from "../profile/profile";
 
 export default function MyPage() {
@@ -16,12 +16,12 @@ export default function MyPage() {
   useEffect(() => {
     const fetchProfileInfo = async () => {
       try {
-        const response = await axios.get(`${CONFIG.serverUrl}/user/my-info`, {
+        const response = await Interceptor.get(`${CONFIG.serverUrl}/user/my-info`, {
           headers: {
             Authorization: `Bearer ${accessToken}`
           }
         });
-
+        console.log(response);
         const userData = response.data.data;
         setProfileImage(userData.images);
         setUserName(userData.name);
