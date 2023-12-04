@@ -1,0 +1,109 @@
+.profileChange{
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   border-radius: 20px;
+    z-index: 4;
+    width: 500px;
+    height: 500px;
+    background-color: aliceblue;
+    animation-name: profilCh;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+h1{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+.prei{
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    
+}
+.Chwritename{
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    border: none;
+    width: 200px;
+    height: 30px;
+
+    
+}
+.BtnUpload{
+    position: absolute;
+    top: 50%;
+    left: 60px;
+    width: 100px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid rgb(105, 93, 93);
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-name: fileani;
+    animation-duration: 1s;
+    &:hover {
+      background: rgb(77, 77, 77);
+      color: #fff;
+    }
+
+}
+.prei > img{
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;    
+}
+.chsubmit{
+    position: absolute;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    background-color: #fff;
+    width: 130px;
+    height: 40px;
+    right: 10%;
+    bottom: 10%;
+    font-size: 25px;
+    font-weight: 600;
+    &:hover{
+        background-color: #13b8ff;
+    }
+}
+.leaveCh{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: #FF6161;
+    
+}
+
+@keyframes profilCh {
+   0% {opacity: 0;}
+    100% {opacity: 1;}
+
+}

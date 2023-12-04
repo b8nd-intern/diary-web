@@ -25,7 +25,7 @@ const GOOGLELOGIN = () => {
 
       if (response.status === 200) {
         const { accessToken, refreshToken } = response.data.data;
-        Cookies.set("accessToken", accessToken);
+        localStorage.setItem("accessToken",accessToken);
         Cookies.set("refreshToken", refreshToken);
       }
 

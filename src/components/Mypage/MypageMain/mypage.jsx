@@ -4,26 +4,43 @@ import Post from "../../Mypage/Post/mypagepost";
 import Grass from "../Grass/mypagegrass";
 import icon from "../../../assets/img/icon.png";
 import axios from "axios";  
-import CONFIG from "../../../config.json"
+import CONFIG from "../../../config.json";
+import Profile from "../profile/profile";
 
 export default function MyPage() {
   const [profileImage, setProfileImage] = useState(null);
+  const [userName, setUserName] = useState("");  
+  const [showProfile, setShowProfile] = useState(false);  
+  const accessToken = localStorage.getItem("accessToken");
 
   useEffect(() => {
-    
-    const fetchProfileImage = async () => {
+    const fetchProfileInfo = async () => {
       try {
-        const response = await axios.get(`${CONFIG.serverUrl}/api/user/profile/image`);  
-        setProfileImage(response.data.profileImage); 
-        console.log(response.data);
+        const response = await axios.get(`${CONFIG.serverUrl}/user/my-info`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`
+          }
+        });
+
+        const userData = response.data.data;
+        setProfileImage(userData.images);
+        setUserName(userData.name);
+
       } catch (error) {
         console.error("Error", error);
-      
       }
     };
 
-    fetchProfileImage();
-  }, []);  
+    fetchProfileInfo();
+  }, [accessToken]);  
+
+  const handleProfileChange = () => {
+    setShowProfile(true);
+  };
+  const handleCloseProfile = () => {
+
+    setShowProfile(false);
+  };
 
   return (
     <div className="mypage">
@@ -32,25 +49,27 @@ export default function MyPage() {
           <div className="profile">
             <h1 id="profile_name">프로필</h1>
             <span id="UserName">
-              <h3>이해준</h3>
+              <h3>{userName}</h3>
             </span>
             <div className="profile_img">
-              <img src={profileImage} id="traimg"/>
-              {/* <label htmlFor="img_upload"> */}
+              <img src={profileImage} id="traimg" />
+              <div className="ChangePro" onClick={handleProfileChange}>
                 <img id="img" src={icon} alt="Upload" />
-                <input type="button" id="profile_correction" />
-              {/* </label> */}
+                <div type="button" id="profile_correction" />
+              </div>
               <input type="file" id="img_upload" style={{ display: "none" }} />
             </div>
           </div>
+          <Grass />
         </div>
-        <Grass />
         <Post />
         <Footer />
+        {showProfile &&( 
+          <div className="test"> 
+            <Profile onClose={handleCloseProfile} />  
+          </div>
+        )}
       </div>
-      <Grass />
-      <Post />
-      <Footer /> 
     </div>
   );
 }
