@@ -1,8 +1,12 @@
 .Post-written{
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 500px;
-    height: 600px;
+    height: 100vh;
     top: 0;
+    position: absolute;
 }
 .mypagepost{
     position: absolute;
@@ -10,10 +14,13 @@
     height: 700px;
     right: 150px;
     top: 0;
+    left: 60%;
 }
+
 #Post-written-name{
-    position: relative;
-    top: 103px;
+    position: absolute;
+    top: 100px;
+    left: 30px;
     color: #000;
     font-family: Roboto;
     font-size: 30px;
@@ -23,8 +30,8 @@
     letter-spacing: 0.1px;
 }
 #Post-written-number{
-    position: relative;
-    top: 83px;
+    position: absolute;
+    top: 100px;
     left: 130px;
     color: #000;
     font-family: Roboto;
@@ -73,13 +80,16 @@
     line-height: normal;
     letter-spacing: 0.1px;
 }
+.Post::-webkit-scrollbar {
+    display: none;
+  }
 .post{
-    position: relative;
-    top: 20px;
+    position: absolute;
+    top: 150px;
     overflow-x: hidden;
-    right: 340px;
-    width: 500px;
+    width: 450px;
     height: 500px;
+    
 }
 .post1{
     position: relative;
@@ -90,6 +100,9 @@
     flex-shrink: 0;
     border-radius: 10px;
     background: #EFEFEF;
+}
+.post2::-webkit-scrollbar {
+    display: none;
 }
 .post2 {
     position: relative;
@@ -103,6 +116,8 @@
     background: #EFEFEF;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
     transition: height 0.3s, box-shadow 0.3s; /* 높이 및 그림자에 대한 애니메이션 설정 */
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 
@@ -136,15 +151,23 @@
     line-height: 20px; /* 100% */
     letter-spacing: 0.1px;
 }
+.post_area{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
 .post_one{
-    display: inline-block;
+    display: flex;
     background: #93C2E4;
     width: 100px;
     height: 100px;
     flex-shrink: 0;
-    margin-left: 35px;
+    margin-left: 30px;
 }
-.post_two{
+/* .post_two{
     display: inline-block;
     background: #B6E0FF;
     width: 100px;
@@ -159,4 +182,23 @@
     height: 100px;
     flex-shrink: 0;
     margin-left: 35px;  
+} */
+.ShowpostBack{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: -177%;
+    width: 101vw;
+    height: 100vh;
+    background-color: rgba(115, 115, 115, 0.487);
+    z-index: 4;
+}
+.Showpost{
+    background-color: aliceblue;
+    border-radius: 5%;
+    z-index: 5;
+    width: 500px;
+    height: 500px;
 }

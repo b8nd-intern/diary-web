@@ -5,14 +5,13 @@ import Grass from "../Grass/mypagegrass";
 import icon from "../../../assets/img/icon.png";
 import axios from "axios";  
 import CONFIG from "../../../config.json";
-import Cookies from "js-cookie";
 import Profile from "../profile/profile";
 
 export default function MyPage() {
   const [profileImage, setProfileImage] = useState(null);
   const [userName, setUserName] = useState("");  
   const [showProfile, setShowProfile] = useState(false);  
-  const accessToken = Cookies.get("accessToken");
+  const accessToken = localStorage.getItem("accessToken");
 
   useEffect(() => {
     const fetchProfileInfo = async () => {
