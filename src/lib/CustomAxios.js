@@ -9,31 +9,43 @@ export const customAxios = axios.create({
   },
 });
 
+
 const errorInterceptor = async (error) => {
-  const accessToken = Cookies.get("accessToken");
+  const accessToken = localStorage.getItem("accessToken");
   const refreshToken = Cookies.get("refreshToken");
 
   if (accessToken && refreshToken && error.response && error.response.status === 401) {
     const originalRequest = error.config;
-    originalRequest._isRetry = true;
 
-    try {
-      const { data } = await axios.post(`${CONFIG.serverUrl}/auth/refresh`, {
-        refreshToken,
-      });
+    if (!originalRequest._retry) {
+      originalRequest._retry = true;
 
-      Cookies.set("accessToken", data.data.accessToken, { expires: 7 });
-      customAxios.defaults.headers.Authorization = `Bearer ${data.data.accessToken}`;
-      originalRequest.headers.Authorization = `Bearer ${data.data.accessToken}`;
+      try {
+        
+        const { data } = await axios.post(`${CONFIG.serverUrl}/auth/refresh`, {
+          refreshToken,
+        });        
+        localStorage.setItem("accessToken", data.data.accessToken, { expires: 7 });
+        customAxios.defaults.headers.Authorization = `Bearer ${data.data.accessToken}`;
+        originalRequest.headers.Authorization = `Bearer ${data.data.accessToken}`;
+        console.log("ok");
 
-      return axios(originalRequest);
-    } catch (refreshError) {
-      throw new Error(`Token error: ${refreshError.message}`);
+        
+        return axios(originalRequest);
+      } catch (refreshError) {
+        console.error("Token refresh error:", refreshError);
+        
+      }
     }
   }
 
-  throw new Error(`error${error.response.status}`);
+  throw error;
 };
 
-customAxios.interceptors.response.use((response) => response, errorInterceptor);
+// 응답 인터셉터 등록
+customAxios.interceptors.response.use(
+  (response) => response,
+  (error) => errorInterceptor(error)
+);
+
 export default customAxios;
